@@ -1,6 +1,8 @@
 <div>
-  <h3>Experience name</h3>
-  <p>Experience Date</p>
-  <p>School/Company | Place</p>
-  <p>Extra descriptions</p>
+  <h3>{{ experience.experienceName }}</h3>
+  <p>
+    {{ experience.experienceDateStart }} - {{ experience.experienceDateEnd }}
+  </p>
+  <p>{{ experience.companyName }} | {{ experience.location }}</p>
+  <p [innerHTML]="experience.extraDescription"></p>
 </div>

@@ -5,6 +5,7 @@ import { LangugeProficiencyComponent } from '../languge-proficiency/languge-prof
 import { SkillComponent } from '../skill/skill.component';
 import { ExperienceComponent } from '../experience/experience.component';
 import { CategoryTitleComponent } from '../category-title/category-title.component';
+import { CV_INFO } from '../../core/constants/cv-info.constant';
 
 @Component({
   selector: 'app-resume-container',
@@ -19,4 +20,6 @@ import { CategoryTitleComponent } from '../category-title/category-title.compone
   templateUrl: './resume-container.component.html',
   styleUrl: './resume-container.component.scss',
 })
-export class ResumeContainerComponent {}
+export class ResumeContainerComponent {
+  public resume = CV_INFO;
+}

@@ -1,5 +1,9 @@
 <div>
-    <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home">
-    </mat-icon>
-    <span>contact info</span>
+  <mat-icon
+    aria-hidden="false"
+    aria-label="Example home icon"
+    [fontIcon]="contact!.contactIcon"
+  >
+  </mat-icon>
+  <span>{{ contact!.contactValue }}</span>
 </div>

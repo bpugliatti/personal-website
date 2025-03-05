@@ -1,7 +1,7 @@
-<p>Language Name | Proficiency</p>
+<p>{{ language.language }} | {{ language.proficiency }}</p>
 <mat-progress-bar
-class="example-margin"
-[mode]="mode"
-[value]="value"
-[bufferValue]="bufferValue">
+  class="example-margin"
+  [mode]="mode"
+  [value]="language.proficiencyLevel"
+>
 </mat-progress-bar>
