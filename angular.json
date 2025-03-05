@@ -29,7 +29,10 @@
                 "input": "public"
               }
             ],
-            "styles": ["src/styles/styles.scss"],
+            "styles": [
+              "src/styles/styles.scss",
+              "src/styles/_theme-colors.scss"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -83,7 +86,10 @@
                 "input": "public"
               }
             ],
-            "styles": ["src/styles/styles.scss"],
+            "styles": [
+              "src/styles/styles.scss",
+              "src/styles/_theme-colors.scss"
+            ],
             "scripts": []
           }
         }

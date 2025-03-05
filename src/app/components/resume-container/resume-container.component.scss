@@ -3,6 +3,15 @@
   flex-direction: row-reverse;
 }
 
+aside,
+main {
+  padding: 20px;
+}
+
+header {
+  padding: 0px 20px;
+}
+
 @media screen and (max-width: 1000px) {
   .container {
     flex-direction: column-reverse;
