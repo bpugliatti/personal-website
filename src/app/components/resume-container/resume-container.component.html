@@ -1,38 +1,40 @@
 <header>
   <app-header [infos]="resume.header"> </app-header>
 </header>
-<main>
-  <section>
-    <app-category-title></app-category-title>
-    @for (experience of resume.jobExperiences; track experience.experienceName)
-    {
-    <app-experience [experience]="experience"> </app-experience>
-    } @empty { There are no items. }
-  </section>
-  <section>
-    <app-category-title></app-category-title>
-    @for (experience of resume.formationExperiences; track
-    experience.experienceName) {
-    <app-experience [experience]="experience"> </app-experience>
-    } @empty { There are no items. }
-  </section>
-</main>
-<aside>
-  <section>
-    @for (contact of resume.contacts; track contact.contactValue) {
-    <app-contact-item [contact]="contact"> </app-contact-item>
-    } @empty { There are no items. }
-  </section>
-  <section>
-    <app-category-title></app-category-title>
-    @for (skillGroup of resume.skills; track skillGroup.skillCategory) {
-    <app-skill [skillGroup]="skillGroup"> </app-skill>
-    } @empty { There are no items. }
-  </section>
-  <section>
-    <app-category-title></app-category-title>
-    @for (language of resume.languages; track language.language) {
-    <app-languge-proficiency [language]="language"> </app-languge-proficiency>
-    } @empty { There are no items. }
-  </section>
-</aside>
+<div class="container">
+  <main>
+    <section>
+      <app-category-title></app-category-title>
+      @for (experience of resume.jobExperiences; track
+      experience.experienceName) {
+      <app-experience [experience]="experience"> </app-experience>
+      } @empty { There are no items. }
+    </section>
+    <section>
+      <app-category-title></app-category-title>
+      @for (experience of resume.formationExperiences; track
+      experience.experienceName) {
+      <app-experience [experience]="experience"> </app-experience>
+      } @empty { There are no items. }
+    </section>
+  </main>
+  <aside>
+    <section>
+      @for (contact of resume.contacts; track contact.contactValue) {
+      <app-contact-item [contact]="contact"> </app-contact-item>
+      } @empty { There are no items. }
+    </section>
+    <section>
+      <app-category-title></app-category-title>
+      @for (skillGroup of resume.skills; track skillGroup.skillCategory) {
+      <app-skill [skillGroup]="skillGroup"> </app-skill>
+      } @empty { There are no items. }
+    </section>
+    <section>
+      <app-category-title></app-category-title>
+      @for (language of resume.languages; track language.language) {
+      <app-languge-proficiency [language]="language"> </app-languge-proficiency>
+      } @empty { There are no items. }
+    </section>
+  </aside>
+</div>
