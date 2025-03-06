@@ -30,6 +30,9 @@ body {
   font-family: Rubik, Roboto, sans-serif;
   color: custom-theme.get-neutral(30);
   background: custom-theme.get-primary(98);
+}
+
+body {
   background-image: url("../../public/illus/watercolour.png");
   background-repeat: no-repeat;
   background-position: 160% 160%;
@@ -38,4 +41,20 @@ body {
 h1,
 h2 {
   font-family: Lora, Rubik, Roboto, sans-serif;
+}
+
+.custom-icon {
+  color: custom-theme.get-primary(50);
+}
+
+@media screen and (max-width: 1200px) {
+  body {
+    background-position: 120% 150%;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  body {
+    background-position: 100% 150%;
+  }
 }
