@@ -5,8 +5,7 @@ export const CV_INFO = {
     lastName: 'PUGLIATTI',
     firstName: 'Barbara',
     jobTitle: 'Front-end Developer',
-    aboutMe:
-      "<p>As a Front-End Developer with 5+ years of experience, I love bringing ideas to life through intuitive interfaces that make everyday interactions smoother and more enjoyable.</p> <p>Specializing in the JavaScript/TypeScript ecosystem, I'm a curious mind who loves exploring new technologies, refining best practices, and finding smarter ways to build high-impact digital experiences.</p>",
+    aboutMe: `<p>As a <span class="highlight">Front-End Developer</span> with 5+ years of experience, I love bringing ideas to life through <span class="highlight">intuitive interfaces</span> that make everyday interactions smoother and more enjoyable.</p> <p>Specialized in the <span class="highlight">Angular</span> ecosystem, I'm a curious mind who loves <span class="highlight">exploring new technologies</span>, refining <span class="highlight">best practices</span>, and finding smarter ways to build high-impact digital experiences.</p>`,
   },
   jobExperiences: [
     {
@@ -16,13 +15,14 @@ export const CV_INFO = {
       companyName: 'Tiime',
       location: 'Paris, France',
       extraDescription: `
-        <p>Collaboration was at the heart of my work: working closely with product and UX teams to develop scalable, reusable UI components that improved performance and maintainability. Beyond my core role, I actively took on minor back-end tasks.</p> 
-        <p>Features I'm proud to have contributed to:</p>
-        <ul>
-            <li><strong>Revamping core credit card functionalities</strong>, streamlining the creation and management of virtual and company cards to enhance user experience and operational efficiency.</li>
-            <li><strong>Implementing Strong Customer Authentication (SCA)</strong> and user privilege management, ensuring top-tier security while maintaining compliance with financial and privacy regulations.</li>
-            <li><strong>Partnering with the QA team</strong> to establish an automated end-to-end test environment, reducing production bug reports on the front-end side.</li>
-        </ul>
+      <p><span class="highlight">Collaboration</span> was at the heart of my work: working closely with product and UX teams to develop <span class="highlight">scalable, reusable UI components</span> that improved <span class="highlight">performance and maintainability</span>. Beyond my core role, I actively took on minor back-end tasks.</p> 
+  <p>Features I'm proud to have contributed to:</p>
+  <ul>
+      <li>Revamping core credit card functionalities, streamlining the creation and management of virtual and company cards to <span class="highlight">enhance user experience</span> and operational efficiency.</li>
+      <li>Implementing Strong Customer Authentication (SCA) and user privilege management, ensuring <span class="highlight">top-tier security</span> while <span class="highlight">maintaining compliance</span> with financial and privacy regulations.</li>
+      <li>Partnering with the QA team to establish an <span class="highlight">automated end-to-end test environment</span>, reducing production bug reports on the front-end side.</li>
+  </ul>
+
     `,
     },
     {
@@ -32,13 +32,13 @@ export const CV_INFO = {
       companyName: 'RS2I',
       location: 'Levallois-Perret, France',
       extraDescription: `
-        <p>I built client-specific interfaces for business process management, turning massive datasets and workflow tracking into intuitive visualizations. Performance and scalability were top priorities.</p>
-        <p>I loved to:</p>
+       <p>I built client-specific interfaces for business process management, turning <span class="highlight">massive datasets</span> and workflow tracking into intuitive visualizations. <span class="highlight">Performance and scalability</span> were top priorities.</p>
+      <p>I loved to:</p>
         <ul>
-            <li><strong>Design optimized data structures and tailored business flows</strong> to ensure the interface scaled effortlessly as data grew.</li>
-            <li><strong>Work remotely with globally distributed teams</strong> in both English and French.</li>
-            <li><strong>Act as a bridge between technical and non-technical stakeholders</strong>, simplifying complex concepts, keeping everyone aligned, and empowering informed decision-making.</li>
-        </ul>
+          <li><span class="highlight">Optimized data structures</span> and tailored business flows to ensure the interface scaled effortlessly as data grew.</li>
+          <li><span class="highlight">Work remotely with globally distributed teams</span> in both English and French.</li>
+          <li>Act as a bridge between technical and non-technical stakeholders, <span class="highlight">simplifying complex concepts</span>, keeping everyone aligned, and empowering <span class="highlight">informed decision-making</span>.</li>
+      </ul>
     `,
     },
   ],

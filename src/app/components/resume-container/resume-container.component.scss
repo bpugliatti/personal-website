@@ -57,6 +57,47 @@ header {
   .container {
     .content-container {
       flex-direction: column-reverse;
+      aside {
+        width: 100%;
+        padding-top: 0px;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+
+        section {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 0.5rem; // Adds spacing between elements
+        }
+
+        section:nth-child(1) {
+          //  flex-wrap: wrap;
+          flex-direction: row;
+          align-items: center;
+          app-contact-item {
+            margin-right: 20px;
+          }
+        }
+
+        section:nth-child(2),
+        section:nth-child(3) {
+          flex-wrap: wrap;
+          display: flex;
+          flex-direction: row;
+          h2 {
+            max-width: 100px;
+            max-height: 20px;
+          }
+        }
+
+        section:nth-child(2) {
+          margin-bottom: 20px;
+        }
+
+        section:nth-child(3) {
+          justify-content: space-between; // Distributes items evenly
+        }
+      }
     }
   }
 }

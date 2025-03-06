@@ -1,8 +1,19 @@
-<div>
-  <h3>{{ experience.experienceName }}</h3>
+<div class="experience-container">
+  <div>
+    <h3>{{ experience.experienceName }}</h3>
+    <p>
+      <span class="highlight"> {{ experience.companyName }} </span>|
+      {{ experience.location }}
+    </p>
+  </div>
   <p>
-    {{ experience.experienceDateStart }} - {{ experience.experienceDateEnd }}
+    <span class="highlight">
+      {{ experience.experienceDateStart }} -
+      {{ experience.experienceDateEnd }}</span
+    >
   </p>
-  <p>{{ experience.companyName }} | {{ experience.location }}</p>
-  <p [innerHTML]="experience.extraDescription"></p>
+  <p
+    [innerHTML]="experience.extraDescription"
+    class="experience-description"
+  ></p>
 </div>

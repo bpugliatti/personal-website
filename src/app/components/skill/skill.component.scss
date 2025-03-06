@@ -27,3 +27,13 @@
   font-size: 20px;
   margin: 16px 0px !important;
 }
+
+@media screen and (max-width: 1000px) {
+  .skill-list {
+    display: inline-grid;
+    grid-template-columns: 1fr 1fr;
+    flex-direction: row;
+    max-width: 100%;
+    padding-top: 0px;
+  }
+}
