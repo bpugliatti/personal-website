@@ -1,6 +1,9 @@
-<div>
-  <div>photo section</div>
-  <h1>{{ infos.name }}</h1>
-  <h2>{{ infos.jobTitle }}</h2>
-  <p [innerHTML]="infos.aboutMe"></p>
+<div class="header-container">
+  <div class="photo-section">photo section</div>
+  <div class="info-section">
+    <h1>
+      {{ infos.firstName }} <span>{{ infos.lastName }}</span>
+    </h1>
+    <h2 class="info-section__subtitle">{{ infos.jobTitle }}</h2>
+  </div>
 </div>

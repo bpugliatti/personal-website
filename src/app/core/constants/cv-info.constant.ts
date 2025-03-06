@@ -2,10 +2,11 @@ export const CV_INFO = {
   header: {
     backgroundImage: '',
     photo: '',
-    name: 'Barbara PUGLIATTI',
+    lastName: 'PUGLIATTI',
+    firstName: 'Barbara',
     jobTitle: 'Front-end Developer',
     aboutMe:
-      "'<p>As a Front-End Developer with 5+ years of experience, I love bringing ideas to life through intuitive interfaces that make everyday interactions smoother and more enjoyable.</p> <p>Specializing in the JavaScript/TypeScript ecosystem, I'm a curious mind who loves exploring new technologies, refining best practices, and finding smarter ways to build high-impact digital experiences.</p>",
+      "<p>As a Front-End Developer with 5+ years of experience, I love bringing ideas to life through intuitive interfaces that make everyday interactions smoother and more enjoyable.</p> <p>Specializing in the JavaScript/TypeScript ecosystem, I'm a curious mind who loves exploring new technologies, refining best practices, and finding smarter ways to build high-impact digital experiences.</p>",
   },
   jobExperiences: [
     {

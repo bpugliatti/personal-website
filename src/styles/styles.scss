@@ -26,16 +26,16 @@ html {
 html,
 body {
   height: 100%;
-}
-body {
   margin: 0;
   font-family: Rubik, Roboto, sans-serif;
   color: custom-theme.get-neutral(30);
   background: custom-theme.get-primary(98);
+  background-image: url("../../public/illus/watercolour.png");
+  background-repeat: no-repeat;
+  background-position: 160% 160%;
 }
 
 h1,
-h2,
-h3 {
+h2 {
   font-family: Lora, Rubik, Roboto, sans-serif;
 }

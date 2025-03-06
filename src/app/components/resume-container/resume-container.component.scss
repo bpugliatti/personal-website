@@ -1,13 +1,28 @@
 .container {
+  position: relative;
   display: flex;
-  flex-direction: row-reverse;
+  flex-direction: column;
+  padding: 72px;
+  max-width: 1200px;
+  margin: 0 auto;
+  .content-container {
+    display: flex;
+    flex-direction: row-reverse;
+    aside {
+      width: 35%;
+    }
+    main {
+      width: 100%;
+      .presentation {
+        font-size: 17px;
+      }
+    }
+  }
 }
 
+.content-container,
 aside,
-main {
-  padding: 20px;
-}
-
+main,
 header {
   padding: 0px 20px;
 }
