@@ -4,14 +4,12 @@ import { HeaderComponent } from '../header/header.component';
 import { LangugeProficiencyComponent } from '../languge-proficiency/languge-proficiency.component';
 import { SkillComponent } from '../skill/skill.component';
 import { ExperienceComponent } from '../experience/experience.component';
-import { CategoryTitleComponent } from '../category-title/category-title.component';
 import { CV_INFO } from '../../core/constants/cv-info.constant';
 
 @Component({
   selector: 'app-resume-container',
   imports: [
     HeaderComponent,
-    CategoryTitleComponent,
     ContactItemComponent,
     SkillComponent,
     LangugeProficiencyComponent,
