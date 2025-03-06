@@ -125,6 +125,7 @@ export const CV_INFO = {
   skills: [
     {
       skillCategory: 'Core Web Technologies',
+      icon: 'code',
       skillList: [
         {
           skillName: 'HTML5',
@@ -155,6 +156,7 @@ export const CV_INFO = {
     },
     {
       skillCategory: 'Frameworks & Libraries',
+      icon: 'developer_mode',
       skillList: [
         {
           skillName: 'Angular 2+',
@@ -195,6 +197,7 @@ export const CV_INFO = {
     },
     {
       skillCategory: 'APIs & Backend',
+      icon: 'dns',
       skillList: [
         {
           skillName: 'RESTful APIs',
@@ -215,6 +218,7 @@ export const CV_INFO = {
     },
     {
       skillCategory: 'Version & Packages Control',
+      icon: 'device_hub',
       skillList: [
         {
           skillName: 'Git',
@@ -235,6 +239,7 @@ export const CV_INFO = {
     },
     {
       skillCategory: 'Tech I’m Currently Exploring',
+      icon: 'star_half',
       skillList: [
         {
           skillName: 'Node.js',
@@ -260,6 +265,7 @@ export const CV_INFO = {
     },
     {
       skillCategory: 'Design & Project Management',
+      icon: 'dashboard',
       skillList: [
         {
           skillName: 'Agile/Scrum Principles',

@@ -1,19 +1,25 @@
 import { Component, Input } from '@angular/core';
 import { SkillCategory } from '../../core/models/skill-category.model';
+import { MatListModule } from '@angular/material/list';
+import { MatIcon } from '@angular/material/icon';
 
 @Component({
   selector: 'app-skill',
-  imports: [],
+  imports: [MatListModule, MatIcon],
   templateUrl: './skill.component.html',
   styleUrl: './skill.component.scss',
 })
 export class SkillComponent {
-  @Input() skillGroup!: SkillCategory;
+  @Input() skillGroups!: SkillCategory[];
 
-  get formattedSkills(): string {
+  get formattedSkillGroups() {
     return (
-      this.skillGroup?.skillList?.map((skill) => skill.skillName).join(', ') ||
-      ''
+      this.skillGroups?.map((group) => ({
+        ...group,
+        formattedSkills:
+          group.skillList?.map((skill) => skill.skillName).join(', ') ||
+          'No skills available',
+      })) || []
     );
   }
 }

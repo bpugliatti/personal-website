@@ -1,3 +1,5 @@
+@use "../../../styles/theme-colors" as custom-theme;
+
 .container {
   position: relative;
   display: flex;
@@ -5,6 +7,13 @@
   padding: 72px;
   max-width: 1200px;
   margin: 0 auto;
+  background-color: custom-theme.get-primary(98);
+  background-image: url("../../../../public/illus/watercolor-angle-top.png");
+  background-repeat: no-repeat;
+  background-position: -150px -250px;
+  background-size: 1200px;
+  box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.2);
+
   .category-title {
     background-image: url("../../../../public/illus/watercolor-line.png");
     background-repeat: no-repeat;
@@ -24,6 +33,7 @@
     flex-direction: row-reverse;
     aside {
       width: 35%;
+      padding-top: 30px;
     }
     main {
       width: 100%;

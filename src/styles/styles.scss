@@ -29,13 +29,7 @@ body {
   margin: 0;
   font-family: Rubik, Roboto, sans-serif;
   color: custom-theme.get-neutral(30);
-  background: custom-theme.get-primary(98);
-}
-
-body {
-  background-image: url("../../public/illus/watercolour.png");
-  background-repeat: no-repeat;
-  background-position: 160% 160%;
+  background: custom-theme.get-neutral(98);
 }
 
 h1,
@@ -45,17 +39,18 @@ h2 {
 }
 
 .custom-icon {
-  color: custom-theme.get-primary(50);
+  color: custom-theme.get-primary(40) !important;
 }
 
-@media screen and (max-width: 1200px) {
-  body {
-    background-position: 120% 150%;
-  }
+mat-list span[matListItemTitle] {
+  color: custom-theme.get-neutral(30);
 }
 
-@media screen and (max-width: 900px) {
-  body {
-    background-position: 100% 150%;
-  }
+mat-list span[matListItemLine] {
+  color: custom-theme.get-neutral(40);
+  font-weight: 400;
+}
+
+mat-list-item {
+  padding-left: 0;
 }

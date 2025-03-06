@@ -30,9 +30,7 @@
       </section>
       <section>
         <h2 class="category-title">Skills</h2>
-        @for (skillGroup of resume.skills; track skillGroup.skillCategory) {
-        <app-skill [skillGroup]="skillGroup"> </app-skill>
-        } @empty { There are no items. }
+        <app-skill [skillGroups]="resume.skills"> </app-skill>
       </section>
       <section>
         <h2 class="category-title">Languages</h2>

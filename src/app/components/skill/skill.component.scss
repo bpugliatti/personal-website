@@ -1,0 +1,29 @@
+@use "../../../styles/theme-colors" as custom-theme;
+
+.skill-list {
+  max-width: 300px;
+}
+
+.skill-list mat-list-item {
+  white-space: normal; /* Allows text to wrap */
+  align-items: flex-start; /* Aligns text properly */
+  height: fit-content;
+  padding: 0;
+}
+
+.skill-list span {
+  display: block; /* Ensures it takes full width and wraps properly */
+  word-wrap: break-word; /* Prevents overflowing text */
+}
+
+.skill-list mat-list-item span[matListItemLine] {
+  flex-wrap: wrap;
+  display: block;
+  white-space: pre-wrap; /* Ensures proper multi-line text display */
+}
+
+.skill-icon {
+  width: 20px;
+  font-size: 20px;
+  margin: 16px 0px !important;
+}
