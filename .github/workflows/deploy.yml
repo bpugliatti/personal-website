@@ -27,5 +27,6 @@ jobs:
       - name: Build and Deploy
         env:
           CI: true
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          npx ng deploy --base-href=/personal-website/
+          npx ng deploy --base-href=/personal-website/ --no-silent --repo=https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/<bpugliatti>/<personal-website>.git
