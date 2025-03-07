@@ -14,49 +14,18 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v3
 
-      - name: Check if gh-pages branch exists and create if needed
-        run: |
-          if git ls-remote --exit-code --heads origin gh-pages; then
-            echo "gh-pages branch exists"
-          else
-            echo "gh-pages does not exist. Creating..."
-            git checkout --orphan gh-pages
-            git reset --hard
-            echo "# GitHub Pages" > README.md
-            git add README.md
-            git -c user.name='github-actions' -c user.email='github-actions@github.com' commit -m "Initial commit for GitHub Pages"
-            git push origin gh-pages
-            git checkout main
-          fi
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
         with:
-          node-version: 18 # Adjust based on your project
+          node-version: 22.14.0
 
       - name: Install dependencies
-        run: npm install # Adjust for yarn/pnpm if needed
+        run: npm ci
 
-      - name: Build Project
-        run: npm run build # Ensure this correctly outputs to dist/
-
-      - name: Verify Build Output
-        run: ls -R dist # List contents to check the structure
-
-      - name: Move files before deployment (Only if browser exists)
+      - name: Build and Deploy
+        env:
+          CI: true
         run: |
-          if [ -d "dist/browser" ]; then
-            mv dist/browser/* dist/
-            rm -rf dist/browser  # Remove empty browser folder
-          else
-            echo "Warning: dist/browser/ does not exist!"
-          fi
-
-      - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@v4
-        with:
-          branch: gh-pages
-          folder: dist # Deploy everything in dist
-
+          npx ng deploy --base-href=/<personal-website>/
