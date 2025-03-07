@@ -45,3 +45,12 @@ h1 {
     width: 100%;
   }
 }
+
+@media screen and (max-width: 750px) {
+  .info-section {
+    padding: 0px;
+    h1 {
+      font-size: 58px;
+    }
+  }
+}
