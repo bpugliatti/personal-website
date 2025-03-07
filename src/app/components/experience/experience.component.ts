@@ -4,7 +4,6 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-experience',
-  imports: [],
   templateUrl: './experience.component.html',
   styleUrl: './experience.component.scss',
 })

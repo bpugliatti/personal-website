@@ -3,7 +3,6 @@ import { Header } from '../../core/models/header.model';
 
 @Component({
   selector: 'app-header',
-  imports: [],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
 })
