@@ -39,10 +39,20 @@ jobs:
       - name: Install dependencies
         run: npm install # Adjust for yarn/pnpm if needed
 
-      - name: Move files before deployment
+      - name: Build Project
+        run: npm run build # Ensure this correctly outputs to dist/
+
+      - name: Verify Build Output
+        run: ls -R dist # List contents to check the structure
+
+      - name: Move files before deployment (Only if browser exists)
         run: |
-          mv dist/browser/* dist/
-          rm -rf dist/browser  # Remove empty browser folder
+          if [ -d "dist/browser" ]; then
+            mv dist/browser/* dist/
+            rm -rf dist/browser  # Remove empty browser folder
+          else
+            echo "Warning: dist/browser/ does not exist!"
+          fi
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
