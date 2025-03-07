@@ -39,11 +39,14 @@ jobs:
       - name: Install dependencies
         run: npm install # Adjust for yarn/pnpm if needed
 
-      - name: Build project
-        run: npm run build # Ensure your project outputs to 'dist'
+      - name: Move files before deployment
+        run: |
+          mv dist/browser/* dist/
+          rm -rf dist/browser  # Remove empty browser folder
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          branch: gh-pages # Deploy to gh-pages
-          folder: dist/personal-website # Change if your build outputs elsewhere
+          branch: gh-pages
+          folder: dist # Deploy everything in dist
+
