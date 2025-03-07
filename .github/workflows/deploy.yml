@@ -46,4 +46,4 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: gh-pages # Deploy to gh-pages
-          folder: dist # Change if your build outputs elsewhere
+          folder: dist/personal-website # Change if your build outputs elsewhere
