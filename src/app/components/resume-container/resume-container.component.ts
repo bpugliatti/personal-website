@@ -5,11 +5,13 @@ import { LangugeProficiencyComponent } from '../languge-proficiency/languge-prof
 import { SkillComponent } from '../skill/skill.component';
 import { ExperienceComponent } from '../experience/experience.component';
 import { CV_INFO } from '../../core/constants/cv-info.constant';
+import { HeadToolbarComponent } from '../head-toolbar/head-toolbar.component';
 
 @Component({
   selector: 'app-resume-container',
   imports: [
     HeaderComponent,
+    HeadToolbarComponent,
     ContactItemComponent,
     SkillComponent,
     LangugeProficiencyComponent,

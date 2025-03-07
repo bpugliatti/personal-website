@@ -1,0 +1,22 @@
+@use "../../../styles/theme-colors" as custom-theme;
+
+mat-toolbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+button {
+  margin-right: 5px;
+}
+
+mat-icon {
+  color: custom-theme.get-primary(30) !important;
+  transition: 0.5s;
+}
+
+span {
+  font-family: Lora, Rubik, Roboto, sans-serif;
+  margin: 0px;
+  letter-spacing: 1.22px;
+}
