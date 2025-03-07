@@ -6,5 +6,30 @@
     class="custom-icon"
   >
   </mat-icon>
-  <span>{{ contact!.contactValue }}</span>
+  <ng-container [ngSwitch]="contact.contactType">
+    <!-- Email: Add mailto link -->
+    <a *ngSwitchCase="'mail'" [href]="'mailto:' + contact.contactValue">
+      {{ contact.contactValue }}
+    </a>
+
+    <!-- Phone: Add tel link -->
+    <a *ngSwitchCase="'phone'" [href]="'tel:' + contact.contactValue">
+      {{ contact.contactValue }}
+    </a>
+
+    <!-- Links: Open in a new tab -->
+    <a
+      *ngSwitchCase="'link'"
+      [href]="'https://' + contact.contactValue"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      {{ contact.contactValue }}
+    </a>
+
+    <!-- Default case (text) -->
+    <span *ngSwitchDefault>
+      {{ contact.contactValue }}
+    </span>
+  </ng-container>
 </div>

@@ -4,10 +4,16 @@
   justify-content: flex-start;
   margin-bottom: 10px;
   font-size: 14px;
-  span {
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  span,
+  a {
     font-weight: bold;
     margin-left: 10px;
   }
+
   mat-icon {
     width: 20px;
     height: 20px;

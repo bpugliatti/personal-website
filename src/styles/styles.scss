@@ -38,8 +38,10 @@ h2 {
   margin: 0px;
 }
 
-.custom-icon {
+.custom-icon,
+a:hover {
   color: custom-theme.get-primary(40) !important;
+  transition: 0.5s;
 }
 
 mat-list span[matListItemTitle] {
