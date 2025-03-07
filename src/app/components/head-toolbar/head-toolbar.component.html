@@ -1,5 +1,5 @@
 <mat-toolbar>
-  <span>Barbara Pugliatti</span>
+  <span>{{ cvName }}</span>
   <span class="toolbar-spacer">
     <button
       mat-icon-button
@@ -13,6 +13,7 @@
       mat-icon-button
       class="toolbar-icon"
       aria-label="toolbar icon-button with share icon"
+      (click)="printPdf()"
     >
       <mat-icon>print</mat-icon>
     </button>
@@ -28,7 +29,7 @@
       class="toolbar-icon"
       aria-label="toolbar icon-button with share icon"
     >
-      <mat-icon>share</mat-icon>
+      <mat-icon>g_translate</mat-icon>
     </button>
   </span>
 </mat-toolbar>

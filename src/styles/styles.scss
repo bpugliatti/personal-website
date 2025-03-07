@@ -3,6 +3,17 @@
 @use "@angular/material" as mat;
 @use "_theme-colors" as custom-theme;
 
+:root {
+  @include mat.toolbar-overrides(
+    (
+      container-background-color: custom-theme.get-primary(60),
+      container-text-color: custom-theme.get-neutral(95),
+      title-text-weight: 500,
+      standard-height: 3rem,
+    )
+  );
+}
+
 html {
   @include mat.theme(
     (
