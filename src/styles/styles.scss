@@ -39,7 +39,8 @@ h2 {
 }
 
 .custom-icon,
-a:hover {
+a:hover,
+mat-icon {
   color: custom-theme.get-primary(40) !important;
   transition: 0.5s;
 }

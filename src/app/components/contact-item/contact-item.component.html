@@ -1,35 +1,52 @@
 <div class="contact-container">
   <mat-icon
     aria-hidden="false"
-    aria-label="Example home icon"
+    aria-label="Contact icon"
     [fontIcon]="contact!.contactIcon"
     class="custom-icon"
   >
   </mat-icon>
-  <ng-container [ngSwitch]="contact.contactType">
-    <!-- Email: Add mailto link -->
-    <a *ngSwitchCase="'mail'" [href]="'mailto:' + contact.contactValue">
-      {{ contact.contactValue }}
-    </a>
-
-    <!-- Phone: Add tel link -->
-    <a *ngSwitchCase="'phone'" [href]="'tel:' + contact.contactValue">
-      {{ contact.contactValue }}
-    </a>
-
-    <!-- Links: Open in a new tab -->
-    <a
-      *ngSwitchCase="'link'"
-      [href]="'https://' + contact.contactValue"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      {{ contact.contactValue }}
-    </a>
-
-    <!-- Default case (text) -->
-    <span *ngSwitchDefault>
-      {{ contact.contactValue }}
-    </span>
-  </ng-container>
+  @switch(contact.contactType) { @case('mail') {
+  <a
+    [href]="'mailto:' + contact.contactValue"
+    [matTooltip]="contact.contactTooltip || ''"
+    matTooltipPosition="above"
+  >
+    {{ contact.contactValue }}
+  </a>
+  } @case('phone') {
+  <a
+    [href]="'tel:' + contact.contactValue"
+    [matTooltip]="contact.contactTooltip || ''"
+    matTooltipPosition="above"
+  >
+    {{ contact.contactValue }}
+  </a>
+  } @case('link') {
+  <a
+    [href]="'https://' + contact.contactValue"
+    target="_blank"
+    rel="noopener noreferrer"
+    [matTooltip]="contact.contactTooltip || ''"
+    matTooltipPosition="above"
+  >
+    {{ contact.contactValue }}
+  </a>
+  } @default {
+  <span [matTooltip]="contact.contactTooltip || ''" matTooltipPosition="above">
+    {{ contact.contactValue }}
+  </span>
+  } } @if (contact.isCopyAllowed) {
+  <button
+    mat-icon-button
+    [cdkCopyToClipboard]="contact.contactValue"
+    aria-label="Copy to clipboard"
+    class="icon-button"
+    (click)="showCopiedMessage()"
+    matTooltip="Click to copy"
+    matTooltipPosition="above"
+  >
+    <mat-icon>content_copy</mat-icon>
+  </button>
+  }
 </div>
