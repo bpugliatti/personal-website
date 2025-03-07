@@ -16,17 +16,17 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Check if gh-pages branch exists
+      - name: Check if gh-pages branch exists and create if needed
         run: |
           if git ls-remote --exit-code --heads origin gh-pages; then
             echo "gh-pages branch exists"
           else
             echo "gh-pages does not exist. Creating..."
             git checkout --orphan gh-pages
-            git rm -rf .
-            touch README.md
+            git reset --hard
+            echo "# GitHub Pages" > README.md
             git add README.md
-            git commit -m "Initial commit for GitHub Pages"
+            git -c user.name='github-actions' -c user.email='github-actions@github.com' commit -m "Initial commit for GitHub Pages"
             git push origin gh-pages
             git checkout main
           fi
