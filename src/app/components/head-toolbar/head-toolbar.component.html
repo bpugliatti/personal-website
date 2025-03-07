@@ -1,0 +1,30 @@
+<mat-toolbar>
+  <span>{{ cvName }}</span>
+  <span class="toolbar-spacer">
+    <button
+      mat-icon-button
+      class="toolbar-icon favorite-icon"
+      (click)="savePdf()"
+    >
+      <mat-icon>download</mat-icon>
+    </button>
+    <button mat-icon-button class="toolbar-icon" (click)="printPdf()">
+      <mat-icon>print</mat-icon>
+    </button>
+    <!-- TODO  <button mat-icon-button class="toolbar-icon">
+      <mat-icon>brush</mat-icon>
+    </button> -->
+    <button mat-icon-button [matMenuTriggerFor]="menu" class="toolbar-icon">
+      <mat-icon>g_translate</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="switchLanguage('en')">EN | English</button>
+      <button mat-menu-item (click)="switchLanguage('fr')">
+        FR | Français
+      </button>
+      <button mat-menu-item (click)="switchLanguage('it')">
+        IT | Italiano
+      </button>
+    </mat-menu>
+  </span>
+</mat-toolbar>

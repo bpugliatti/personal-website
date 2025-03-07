@@ -1,0 +1,46 @@
+<app-head-toolbar></app-head-toolbar>
+
+<div class="container" id="cv-container">
+  <header>
+    <app-header [infos]="resume().header"> </app-header>
+  </header>
+  <div class="content-container">
+    <main>
+      <section class="presentation">
+        <p [innerHTML]="resume().header.aboutMe"></p>
+      </section>
+      <section>
+        <h2 class="category-title">Experience</h2>
+        @for (experience of resume().jobExperiences; track
+        experience.experienceName) {
+        <app-experience [experience]="experience"> </app-experience>
+        } @empty { There are no items. }
+      </section>
+      <section>
+        <h2 class="category-title">Education</h2>
+        @for (experience of resume().formationExperiences; track
+        experience.experienceName) {
+        <app-experience [experience]="experience"> </app-experience>
+        } @empty { There are no items. }
+      </section>
+    </main>
+    <aside>
+      <section>
+        @for (contact of resume().contacts; track contact.contactValue) {
+        <app-contact-item [contact]="contact"> </app-contact-item>
+        } @empty { There are no items. }
+      </section>
+      <section>
+        <h2 class="category-title">Skills</h2>
+        <app-skill [skillGroups]="resume().skills"> </app-skill>
+      </section>
+      <section>
+        <h2 class="category-title languages">Languages</h2>
+        @for (language of resume().languages; track language.language) {
+        <app-languge-proficiency [language]="language">
+        </app-languge-proficiency>
+        } @empty { There are no items. }
+      </section>
+    </aside>
+  </div>
+</div>

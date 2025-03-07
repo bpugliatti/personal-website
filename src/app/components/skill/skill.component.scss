@@ -1,0 +1,37 @@
+.skill-list {
+  max-width: 300px;
+}
+
+.skill-list mat-list-item {
+  white-space: normal;
+  align-items: flex-start;
+  height: fit-content;
+  padding: 0;
+}
+
+.skill-list span {
+  display: block;
+  word-wrap: break-word;
+}
+
+.skill-list mat-list-item span[matListItemLine] {
+  flex-wrap: wrap;
+  display: block;
+  white-space: pre-wrap;
+}
+
+.skill-icon {
+  width: 20px;
+  font-size: 20px;
+  margin: 16px 0px !important;
+}
+
+@media screen and (max-width: 1000px) {
+  .skill-list {
+    display: inline-grid;
+    grid-template-columns: 1fr 1fr;
+    flex-direction: row;
+    max-width: 100%;
+    padding-top: 0px;
+  }
+}

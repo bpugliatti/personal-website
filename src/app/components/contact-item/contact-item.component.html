@@ -1,0 +1,52 @@
+<div class="contact-container">
+  <mat-icon
+    aria-hidden="false"
+    aria-label="Contact icon"
+    [fontIcon]="contact!.contactIcon"
+    class="custom-icon"
+  >
+  </mat-icon>
+  @switch(contact.contactType) { @case('mail') {
+  <a
+    [href]="'mailto:' + contact.contactValue"
+    [matTooltip]="contact.contactTooltip || ''"
+    matTooltipPosition="above"
+  >
+    {{ contact.contactValue }}
+  </a>
+  } @case('phone') {
+  <a
+    [href]="'tel:' + contact.contactValue"
+    [matTooltip]="contact.contactTooltip || ''"
+    matTooltipPosition="above"
+  >
+    {{ contact.contactValue }}
+  </a>
+  } @case('link') {
+  <a
+    [href]="'https://' + contact.contactValue"
+    target="_blank"
+    rel="noopener noreferrer"
+    [matTooltip]="contact.contactTooltip || ''"
+    matTooltipPosition="above"
+  >
+    {{ contact.contactValue }}
+  </a>
+  } @default {
+  <span [matTooltip]="contact.contactTooltip || ''" matTooltipPosition="above">
+    {{ contact.contactValue }}
+  </span>
+  } } @if (contact.isCopyAllowed) {
+  <button
+    mat-icon-button
+    [cdkCopyToClipboard]="contact.contactValue"
+    aria-label="Copy to clipboard"
+    class="icon-button no-print"
+    (click)="showCopiedMessage()"
+    matTooltip="Click to copy"
+    matTooltipPosition="above"
+  >
+    <mat-icon>content_copy</mat-icon>
+  </button>
+  }
+</div>

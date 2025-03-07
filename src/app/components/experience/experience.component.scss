@@ -1,0 +1,28 @@
+.experience-container {
+  margin-bottom: 25px;
+  display: flex;
+  flex-wrap: wrap;
+  font-weight: 400;
+  line-height: 20px;
+  align-items: baseline;
+  justify-content: space-between;
+  h3 {
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+  }
+
+  .experience-description {
+    width: 100%;
+    text-align: justify;
+    font-size: 16px;
+    line-height: 25px;
+  }
+  p {
+    margin: 0;
+  }
+}
+.highlight,
+.experience-description strong {
+  font-weight: 500 !important;
+}
