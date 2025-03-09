@@ -20,7 +20,7 @@ export class PdfService {
     const originalStyle = element.getAttribute('style');
 
     // Apply fixed dimensions (e.g., A4 at 96 DPI)
-    element.style.width = '270mm'; // perfect rendering don't ever modify
+    element.style.width = '280mm'; // perfect rendering don't ever modify
     element.style.backgroundColor = '#ffffff'; // perfect rendering don't ever modify
 
     try {
@@ -46,30 +46,46 @@ export class PdfService {
     const pdf = new jsPDF('p', 'mm', 'a4');
     const pageWidth = 210; // A4 width in mm
     const pageHeight = 297; // A4 height in mm
+    const marginBottom = 20; // More bottom margin
+    const marginTop = 20; // More top margin after the first page
 
     const scaleFactor = canvas.width / pageWidth;
     const imgHeight = canvas.height / scaleFactor;
 
     let yPosition = 0;
+    let firstPage = true;
 
     while (yPosition < imgHeight) {
-      if (yPosition > 0) pdf.addPage();
+      if (!firstPage) {
+        pdf.addPage();
+      }
 
+      // Define the usable height per page
+      const availableHeight = firstPage
+        ? pageHeight - marginBottom
+        : pageHeight - (marginTop + marginBottom);
+
+      // Crop canvas properly to prevent cutting off content
       const croppedCanvas = this.cropCanvas(
         canvas,
         yPosition * scaleFactor,
-        pageHeight * scaleFactor
+        availableHeight * scaleFactor
       );
+
+      // Correctly position content on each page
+      const imageY = firstPage ? 0 : marginTop;
       pdf.addImage(
         croppedCanvas.toDataURL('image/png'),
         'PNG',
         0,
-        0,
+        imageY,
         pageWidth,
-        pageHeight
+        availableHeight
       );
 
-      yPosition += pageHeight;
+      // Move to the next page position
+      yPosition += availableHeight;
+      firstPage = false;
     }
 
     return pdf;
