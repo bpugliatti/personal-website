@@ -37,7 +37,7 @@ export class PdfService {
     let imgHeight = (canvas.height * imgWidth) / canvas.width;
     let yPosition = 0;
     const marginTop = 20,
-      bottomMargin = 15;
+      bottomMargin = 10;
 
     const breakPositions = this.getBreakPositions(element);
 
