@@ -11,112 +11,95 @@ export class PdfService {
     if (!element) return null;
 
     const canvas = await this.captureElement(element);
-    return this.createPdfFromCanvas(canvas, element);
+    return this.createPdfFromCanvas(canvas);
   }
 
   private async captureElement(
     element: HTMLElement
   ): Promise<HTMLCanvasElement> {
-    return await html2canvas(element, {
-      scale: 2,
-      backgroundColor:
-        window.getComputedStyle(element).backgroundColor || '#ffffff',
-      ignoreElements: (el) => el.classList.contains('no-print'),
-    });
+    const originalStyle = element.getAttribute('style');
+
+    // Apply fixed dimensions (e.g., A4 at 96 DPI)
+    element.style.width = '270mm'; // perfect rendering don't ever modify
+    element.style.backgroundColor = '#ffffff'; // perfect rendering don't ever modify
+
+    try {
+      const canvas = await html2canvas(element, {
+        scale: 2, // Maintain high resolution
+        backgroundColor: '#ffffff',
+        useCORS: true,
+        ignoreElements: (el) => el.classList.contains('no-print'),
+      });
+
+      return canvas;
+    } finally {
+      // Restore original styles
+      if (originalStyle) {
+        element.setAttribute('style', originalStyle);
+      } else {
+        element.removeAttribute('style');
+      }
+    }
   }
 
-  private createPdfFromCanvas(
-    canvas: HTMLCanvasElement,
-    element: HTMLElement
-  ): jsPDF {
+  private createPdfFromCanvas(canvas: HTMLCanvasElement): jsPDF {
     const pdf = new jsPDF('p', 'mm', 'a4');
-    const imgData = canvas.toDataURL('image/png');
-    const pageWidth = 210,
-      pageHeight = 297;
-    const imgWidth = pageWidth;
-    let imgHeight = (canvas.height * imgWidth) / canvas.width;
-    let yPosition = 0;
-    const marginTop = 20,
-      bottomMargin = 10;
+    const pageWidth = 210; // A4 width in mm
+    const pageHeight = 297; // A4 height in mm
 
-    const breakPositions = this.getBreakPositions(element);
+    const scaleFactor = canvas.width / pageWidth;
+    const imgHeight = canvas.height / scaleFactor;
+
+    let yPosition = 0;
 
     while (yPosition < imgHeight) {
       if (yPosition > 0) pdf.addPage();
-      pdf.setFillColor(
-        window.getComputedStyle(element).backgroundColor || '#ffffff'
-      );
-      pdf.rect(0, 0, pageWidth, pageHeight, 'F');
-      yPosition = this.addPageImage(
-        pdf,
+
+      const croppedCanvas = this.cropCanvas(
         canvas,
-        imgWidth,
-        yPosition,
-        imgHeight,
-        breakPositions,
-        marginTop,
-        bottomMargin
+        yPosition * scaleFactor,
+        pageHeight * scaleFactor
       );
+      pdf.addImage(
+        croppedCanvas.toDataURL('image/png'),
+        'PNG',
+        0,
+        0,
+        pageWidth,
+        pageHeight
+      );
+
+      yPosition += pageHeight;
     }
+
     return pdf;
   }
 
-  private getBreakPositions(element: HTMLElement): number[] {
-    return [...element.querySelectorAll('.avoid-page-break')].map(
-      (child) =>
-        child.getBoundingClientRect().top +
-        window.scrollY -
-        element.getBoundingClientRect().top
-    );
-  }
-
-  private addPageImage(
-    pdf: jsPDF,
+  private cropCanvas(
     canvas: HTMLCanvasElement,
-    imgWidth: number,
-    yPosition: number,
-    imgHeight: number,
-    breakPositions: number[],
-    marginTop: number,
-    bottomMargin: number
-  ): number {
-    let nextBreak = breakPositions.find(
-      (pos) =>
-        pos > yPosition && pos < yPosition + 297 - marginTop - bottomMargin
-    );
-    let cropHeight = Math.min(
-      nextBreak ? nextBreak - yPosition : 297 - marginTop - bottomMargin,
-      imgHeight - yPosition
-    );
-
+    startY: number,
+    pageHeight: number
+  ): HTMLCanvasElement {
     const croppedCanvas = document.createElement('canvas');
-    Object.assign(croppedCanvas, {
-      width: canvas.width,
-      height: (cropHeight * canvas.width) / imgWidth,
-    });
-    const croppedCtx = croppedCanvas.getContext('2d');
+    croppedCanvas.width = canvas.width;
+    croppedCanvas.height = pageHeight;
 
-    croppedCtx?.drawImage(
-      canvas,
-      0,
-      yPosition * (canvas.width / imgWidth),
-      croppedCanvas.width,
-      croppedCanvas.height,
-      0,
-      0,
-      croppedCanvas.width,
-      croppedCanvas.height
-    );
-    pdf.addImage(
-      croppedCanvas.toDataURL('image/png'),
-      'PNG',
-      0,
-      yPosition > 0 ? marginTop : 0,
-      imgWidth,
-      cropHeight
-    );
+    const ctx = croppedCanvas.getContext('2d');
+    if (ctx) {
+      ctx.drawImage(
+        canvas,
+        0,
+        startY,
+        canvas.width,
+        pageHeight,
+        0,
+        0,
+        croppedCanvas.width,
+        croppedCanvas.height
+      );
+    }
 
-    return yPosition + cropHeight;
+    return croppedCanvas;
   }
 
   async printPDF(elementId: string): Promise<void> {
