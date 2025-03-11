@@ -72,3 +72,13 @@ mat-list-item {
 .highlight {
   font-weight: 600;
 }
+
+.avoid-page-break {
+  break-inside: avoid;
+  page-break-inside: avoid; /* For older browsers */
+}
+
+.page-break {
+  page-break-before: always;
+  break-before: always;
+}

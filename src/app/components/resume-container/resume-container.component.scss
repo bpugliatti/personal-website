@@ -1,6 +1,7 @@
 @use "../../../styles/theme-colors" as custom-theme;
 
 .container {
+  container-type: inline-size; // Enables container queries
   position: relative;
   display: flex;
   flex-direction: column;
@@ -55,13 +56,13 @@ header {
   padding: 0 20px;
 }
 
-@media screen and (max-width: 1350px) {
+@container (max-width: 1350px) {
   .container {
     margin: 0px auto;
   }
 }
 
-@media screen and (max-width: 1000px) {
+@container (max-width: 1000px) {
   .container {
     margin: 0px auto;
 
@@ -114,7 +115,7 @@ header {
   }
 }
 
-@media screen and (max-width: 750px) {
+@container (max-width: 750px) {
   .container {
     padding: 15px;
     margin: 0px auto;
