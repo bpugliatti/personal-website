@@ -5,10 +5,10 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --output-path=dist --base-href=/personal-website/",
+    "build": "ng build --configuration production",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d dist/personal-website"
   },
   "dependencies": {
     "@angular/cdk": "^19.2.1",
