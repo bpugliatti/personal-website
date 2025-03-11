@@ -25,7 +25,15 @@ jobs:
         run: npm ci
 
       - name: Build Angular App
-        run: npm run build -- --output-path=dist/personal-website --base-href="/personal-website/"
+        run: npm run build -- --output-path=dist --base-href="/personal-website/"
+
+      - name: Move Build Files Out of `browser`
+        run: |
+          mv dist/browser/* dist/
+          rm -rf dist/browser
+
+      - name: Debug Build Output
+        run: ls -R dist/
 
       - name: Set Git Identity
         run: |
@@ -36,4 +44,4 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          npx gh-pages -d dist/personal-website --repo=https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/bpugliatti/personal-website.git
+          npx gh-pages -d dist --repo=https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/bpugliatti/personal-website.git
