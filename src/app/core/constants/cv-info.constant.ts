@@ -325,8 +325,8 @@ export const CV_INFO: CVInfo = {
       lastName: 'Pugliatti',
       firstName: 'Barbara',
       jobTitle: 'Développeuse Front-end',
-      aboutMe: `<p>En tant que <span class="highlight">Développeuse Front-End</span> avec plus de 5 ans d'expérience, j'aime donner vie aux idées grâce à des <span class="highlight">interfaces intuitives</span> qui rendent les interactions quotidiennes plus fluides et agréables.</p> 
-    <p>Spécialisée dans l'écosystème <span class="highlight">Angular</span>, je suis une curieuse qui adore <span class="highlight">explorer de nouvelles technologies</span>, affiner les <span class="highlight">meilleures pratiques</span> et trouver des moyens plus intelligents de créer des expériences numériques à fort impact.</p>`,
+      aboutMe: `<p>En tant que <span class="highlight">développeuse Front-End</span> avec plus de 5 ans d'expérience, j'adore donner vie aux idées à travers des <span class="highlight">interfaces intuitives</span> qui rendent chaque interaction plus fluide et agréable.</p>  
+<p>Spécialisée dans l'écosystème <span class="highlight">Angular</span>, j’ai un esprit curieux qui aime <span class="highlight">découvrir de nouvelles technologies</span>, perfectionner les <span class="highlight">bonnes pratiques</span> et trouver des approches plus intelligentes pour concevoir des expériences numériques à fort impact.</p>`,
     },
     jobExperiences: [
       {
@@ -336,29 +336,33 @@ export const CV_INFO: CVInfo = {
         companyName: 'Tiime',
         location: 'Paris, France',
         extraDescription: `
-      <p><span class="highlight">La collaboration</span> était au cœur de mon travail : travailler en étroite collaboration avec les équipes produit et UX pour développer des <span class="highlight">composants UI réutilisables et évolutifs</span> afin d'améliorer la <span class="highlight">performance et la maintenabilité</span>. En plus de mon rôle principal, j'ai également effectué quelques tâches back-end.</p> 
-  <p>Fonctionnalités auxquelles j'ai contribué :</p>
-  <ul>
-      <li>Refonte des fonctionnalités principales des cartes bancaires, simplifiant la création et la gestion des cartes virtuelles et d’entreprise afin d'<span class="highlight">améliorer l’expérience utilisateur</span> et l’efficacité opérationnelle.</li>
-      <li>Implémentation de l'Authentification Forte du Client (SCA) et gestion des privilèges utilisateurs, garantissant une <span class="highlight">sécurité optimale</span> tout en <span class="highlight">assurant la conformité</span> aux réglementations financières et de confidentialité.</li>
-      <li>Collaboration avec l'équipe QA pour mettre en place un <span class="highlight">environnement de tests end-to-end automatisé</span>, réduisant les rapports de bugs en production côté front-end.</li>
-  </ul>
+      <p>La <span class="highlight">collaboration</span> était au cœur de mon travail : j'ai travaillé en étroite relation avec les équipes produit et UX pour développer des <span class="highlight">composants UI réutilisables et évolutifs</span>, améliorant ainsi la <span class="highlight">performance et la maintenabilité</span>. Au-delà de mon rôle principal, j’ai également pris en charge certaines tâches mineures en back-end.</p>  
+
+<p>Les fonctionnalités auxquelles je suis fière d’avoir contribué :</p>  
+<ul>  
+    <li>Refonte des fonctionnalités clés des cartes de crédit, simplifiant la création et la gestion des cartes virtuelles et d'entreprise pour <span class="highlight">améliorer l'expérience utilisateur</span> et l’efficacité opérationnelle.</li>  
+    <li>Mise en place de l’Authentification Forte du Client (SCA) et de la gestion des privilèges utilisateurs, garantissant une <span class="highlight">sécurité optimale</span> tout en <span class="highlight">assurant la conformité</span> aux réglementations financières et de protection des données.</li>  
+    <li>Collaboration avec l'équipe QA pour établir un <span class="highlight">environnement de test automatisé de bout en bout</span>, réduisant ainsi le nombre de bugs signalés en production côté front-end.</li>  
+</ul>
+
     `,
       },
       {
-        experienceName: 'INGÉNIEURE EN INFORMATIQUE',
+        experienceName: 'INGÉNIEURE INFORMATIQUE',
         experienceDateStart: 'Sept 2019',
         experienceDateEnd: 'Juin 2021',
         companyName: 'RS2I',
         location: 'Levallois-Perret, France',
         extraDescription: `
-       <p>J'ai conçu des interfaces spécifiques aux besoins des clients pour la gestion des processus métier, transformant des <span class="highlight">données massives</span> et des suivis de flux de travail en visualisations intuitives. La <span class="highlight">performance et la scalabilité</span> étaient mes priorités.</p>
-      <p>J'aimais :</p>
-        <ul>
-          <li><span class="highlight">Optimiser les structures de données</span> et adapter les flux métier pour garantir une interface fluide, même avec des volumes de données croissants.</li>
-          <li><span class="highlight">Travailler à distance avec des équipes distribuées</span> à travers le monde, en anglais et en français.</li>
-          <li>Faire le lien entre les parties techniques et non techniques, <span class="highlight">simplifiant des concepts complexes</span>, alignant toutes les parties prenantes et facilitant une <span class="highlight">prise de décision éclairée</span>.</li>
-      </ul>
+      <p>J'ai conçu des interfaces adaptées aux besoins des clients pour la gestion des processus métier, transformant des <span class="highlight">volumes massifs de données</span> et des flux de travail complexes en visualisations claires et intuitives. La <span class="highlight">performance et la scalabilité</span> étaient toujours au cœur de mes priorités.</p>  
+
+<p>Ce que j’aimais particulièrement :</p>  
+<ul>  
+  <li><span class="highlight">Optimiser les structures de données</span> et adapter les flux métier pour garantir une interface fluide, même face à une croissance exponentielle des données.</li>  
+  <li><span class="highlight">Collaborer à distance avec des équipes distribuées</span> à travers le monde, en anglais et en français.</li>  
+  <li>Faire le lien entre les équipes techniques et non techniques, <span class="highlight">rendant des concepts complexes accessibles</span>, alignant toutes les parties prenantes et facilitant une <span class="highlight">prise de décision éclairée</span>.</li>  
+</ul>
+
     `,
       },
     ],
@@ -380,8 +384,7 @@ export const CV_INFO: CVInfo = {
         extraDescription: '',
       },
       {
-        experienceName:
-          'MASTER EN ARTS, DIVERTISSEMENT, MODE & ARTS NUMÉRIQUES',
+        experienceName: 'MASTER EN ARTS, MODE & ARTS NUMÉRIQUES',
         experienceDateStart: 'Sept 2014',
         experienceDateEnd: 'Mars 2017',
         companyName: 'Université La Sapienza de Rome',
@@ -452,45 +455,170 @@ export const CV_INFO: CVInfo = {
         skillCategory: 'Technologies Web de Base',
         icon: 'code',
         skillList: [
-          { skillName: 'HTML5' },
-          { skillName: 'CSS3' },
-          { skillName: 'SASS/SCSS' },
-          { skillName: 'JavaScript' },
-          { skillName: 'TypeScript' },
+          {
+            skillName: 'HTML5',
+            isLinkedToCertification: false,
+            linkToCertification: '',
+          },
+          {
+            skillName: 'CSS3',
+            isLinkedToCertification: false,
+            linkToCertification: '',
+          },
+          {
+            skillName: 'SASS/SCSS',
+            isLinkedToCertification: false,
+            linkToCertification: '',
+          },
+          {
+            skillName: 'Javascript',
+            isLinkedToCertification: false,
+            linkToCertification: '',
+          },
+          {
+            skillName: 'TypeScript',
+            isLinkedToCertification: false,
+            linkToCertification: '',
+          },
         ],
       },
       {
-        skillCategory: 'Frameworks & Librairies',
+        skillCategory: 'Frameworks & Bibliothèques',
         icon: 'developer_mode',
         skillList: [
-          { skillName: 'Angular 2+' },
-          { skillName: 'Redux' },
-          { skillName: 'RxJs' },
-          { skillName: 'Angular Material' },
-          { skillName: 'Cypress' },
-          { skillName: 'Bootstrap' },
-          { skillName: 'Tailwind CSS' },
+          {
+            skillName: 'Angular 2+',
+            isLinkedToCertification: false,
+            linkToCertification: '',
+          },
+          {
+            skillName: 'Redux',
+            isLinkedToCertification: false,
+            linkToCertification: '',
+          },
+          {
+            skillName: 'RxJs',
+            isLinkedToCertification: false,
+            linkToCertification: '',
+          },
+          {
+            skillName: 'Angular Material',
+            isLinkedToCertification: false,
+            linkToCertification: '',
+          },
+          {
+            skillName: 'Cypress',
+            isLinkedToCertification: false,
+            linkToCertification: '',
+          },
+          {
+            skillName: 'Bootstrap',
+            isLinkedToCertification: false,
+            linkToCertification: '',
+          },
+          {
+            skillName: 'Tailwind CSS',
+            isLinkedToCertification: false,
+            linkToCertification: '',
+          },
         ],
       },
       {
-        skillCategory: 'APIs & Backend',
+        skillCategory: 'APIs & Back-End',
         icon: 'dns',
         skillList: [
-          { skillName: 'APIs RESTful' },
-          { skillName: 'PHP' },
-          { skillName: 'Symfony' },
+          {
+            skillName: 'APIs RESTful',
+            isLinkedToCertification: false,
+            linkToCertification: '',
+          },
+          {
+            skillName: 'Php',
+            isLinkedToCertification: false,
+            linkToCertification: '',
+          },
+          {
+            skillName: 'Symfony',
+            isLinkedToCertification: false,
+            linkToCertification: '',
+          },
         ],
       },
       {
-        skillCategory: 'Contrôle de Version & Gestion de Packages',
+        skillCategory: 'Versioning & Dépendances',
         icon: 'device_hub',
         skillList: [
-          { skillName: 'Git' },
-          { skillName: 'GitHub' },
-          { skillName: 'NPM/Yarn' },
+          {
+            skillName: 'Git',
+            isLinkedToCertification: false,
+            linkToCertification: '',
+          },
+          {
+            skillName: 'GitHub',
+            isLinkedToCertification: false,
+            linkToCertification: '',
+          },
+          {
+            skillName: 'NPM/Yarn',
+            isLinkedToCertification: false,
+            linkToCertification: '',
+          },
+        ],
+      },
+      {
+        skillCategory: "En ce moment j'esplore",
+        icon: 'star_half',
+        skillList: [
+          {
+            skillName: 'Node.js',
+            isLinkedToCertification: false,
+            linkToCertification: '',
+          },
+          {
+            skillName: 'Docker',
+            isLinkedToCertification: false,
+            linkToCertification: '',
+          },
+          {
+            skillName: 'Pipelines CI/CD',
+            isLinkedToCertification: false,
+            linkToCertification: '',
+          },
+          {
+            skillName: 'AWS Cloud',
+            isLinkedToCertification: false,
+            linkToCertification: '',
+          },
+        ],
+      },
+      {
+        skillCategory: 'Design & Gestion de Projet',
+        icon: 'dashboard',
+        skillList: [
+          {
+            skillName: 'Principes Agile/Scrum',
+            isLinkedToCertification: false,
+            linkToCertification: '',
+          },
+          {
+            skillName: 'Jira',
+            isLinkedToCertification: false,
+            linkToCertification: '',
+          },
+          {
+            skillName: 'Miro',
+            isLinkedToCertification: false,
+            linkToCertification: '',
+          },
+          {
+            skillName: 'Figma',
+            isLinkedToCertification: false,
+            linkToCertification: '',
+          },
         ],
       },
     ],
+
     languages: [
       { language: 'Italien', proficiency: 'Natif', proficiencyLevel: '100' },
       { language: 'Français', proficiency: 'B2/C1', proficiencyLevel: '80' },
@@ -505,8 +633,9 @@ export const CV_INFO: CVInfo = {
       lastName: 'Pugliatti',
       firstName: 'Barbara',
       jobTitle: 'Sviluppatrice Front-end',
-      aboutMe: `<p>Come <span class="highlight">Sviluppatrice Front-End</span> con oltre 5 anni di esperienza, amo dare vita alle idee attraverso <span class="highlight">interfacce intuitive</span> che rendono le interazioni quotidiane più fluide e piacevoli.</p> 
-      <p>Specializzata nell'ecosistema <span class="highlight">Angular</span>, sono una persona curiosa che ama <span class="highlight">esplorare nuove tecnologie</span>, perfezionare le <span class="highlight">best practice</span> e trovare modi più intelligenti per creare esperienze digitali di grande impatto.</p>`,
+      aboutMe: `<p>In qualità di <span class="highlight">Sviluppatrice Front-End</span> con oltre 5 anni di esperienza, amo trasformare le idee in realtà attraverso <span class="highlight">interfacce intuitive</span> che rendono le interazioni quotidiane più fluide e piacevoli.</p>  
+<p>Specializzata nell'ecosistema <span class="highlight">Angular</span>, sono una persona curiosa che ama <span class="highlight">scoprire nuove tecnologie</span>, perfezionare le <span class="highlight">best practice</span> e trovare soluzioni più intelligenti per creare esperienze digitali ad alto impatto.</p>
+`,
     },
     jobExperiences: [
       {
@@ -516,13 +645,14 @@ export const CV_INFO: CVInfo = {
         companyName: 'Tiime',
         location: 'Parigi, Francia',
         extraDescription: `
-        <p><span class="highlight">La collaborazione</span> è stata al centro del mio lavoro: ho lavorato a stretto contatto con i team di prodotto e UX per sviluppare <span class="highlight">componenti UI scalabili e riutilizzabili</span> che hanno migliorato la <span class="highlight">performance e la manutenibilità</span>. Oltre al mio ruolo principale, ho svolto anche alcune attività di back-end.</p> 
-    <p>Funzionalità a cui ho contribuito:</p>
-    <ul>
-        <li>Rinnovamento delle funzionalità principali delle carte di credito, semplificando la creazione e la gestione delle carte virtuali e aziendali per <span class="highlight">migliorare l'esperienza utente</span> e l'efficienza operativa.</li>
-        <li>Implementazione della Strong Customer Authentication (SCA) e gestione dei privilegi utente, garantendo una <span class="highlight">sicurezza di alto livello</span> e <span class="highlight">conformità</span> alle normative finanziarie e sulla privacy.</li>
-        <li>Collaborazione con il team QA per creare un <span class="highlight">ambiente di test end-to-end automatizzato</span>, riducendo il numero di bug segnalati in produzione lato front-end.</li>
-    </ul>
+     <p><span class="highlight">La collaborazione</span> è sempre stata al centro del mio lavoro: ho lavorato a stretto contatto con i team di prodotto e UX per sviluppare <span class="highlight">componenti UI scalabili e riutilizzabili</span>, migliorando la <span class="highlight">performance e la manutenibilità</span>. Oltre al mio ruolo principale, mi sono occupata anche di alcune attività di back-end.</p>  
+
+<p>Funzionalità a cui ho contribuito:</p>  
+<ul>  
+    <li>Rinnovamento delle funzionalità di gestione delle carte di credito, semplificando la creazione e la gestione delle carte virtuali e aziendali per <span class="highlight">ottimizzare l'esperienza utente</span> e migliorare l’efficienza operativa.</li>  
+    <li>Implementazione della Strong Customer Authentication (SCA) e gestione dei privilegi utente, garantendo una <span class="highlight">sicurezza avanzata</span> e la <span class="highlight">conformità</span> alle normative finanziarie e sulla protezione dei dati.</li>  
+    <li>Collaborazione con il team QA per creare un <span class="highlight">ambiente di test end-to-end automatizzato</span>, riducendo il numero di bug segnalati in produzione lato front-end.</li>  
+</ul>
       `,
       },
       {
@@ -532,13 +662,14 @@ export const CV_INFO: CVInfo = {
         companyName: 'RS2I',
         location: 'Levallois-Perret, Francia',
         extraDescription: `
-         <p>Ho realizzato interfacce su misura per la gestione dei processi aziendali, trasformando <span class="highlight">grandi set di dati</span> e tracciamento dei flussi di lavoro in visualizzazioni intuitive. <span class="highlight">Performance e scalabilità</span> erano le mie priorità.</p>
-        <p>Amo:</p>
-          <ul>
-            <li><span class="highlight">Ottimizzare le strutture dati</span> e adattare i flussi aziendali per garantire un'interfaccia scalabile senza problemi con la crescita dei dati.</li>
-            <li><span class="highlight">Lavorare da remoto con team distribuiti</span> a livello globale, in inglese e francese.</li>
-            <li>Fare da ponte tra stakeholder tecnici e non tecnici, <span class="highlight">semplificando concetti complessi</span>, allineando tutti e permettendo una <span class="highlight">presa di decisioni consapevole</span>.</li>
-        </ul>
+        <p>Ho progettato interfacce su misura per la gestione dei processi aziendali, trasformando <span class="highlight">grandi volumi di dati</span> e il tracciamento dei flussi di lavoro in visualizzazioni intuitive. <span class="highlight">Performance e scalabilità</span> sono sempre state le mie priorità.</p>  
+
+<p>Ho amato:</p>  
+<ul>  
+  <li><span class="highlight">Ottimizzare le strutture dati</span> e adattare i flussi aziendali per garantire un'interfaccia fluida e scalabile, anche con l'aumento dei dati.</li>  
+  <li><span class="highlight">Lavorare da remoto con team distribuiti</span> a livello globale, in inglese e francese.</li>  
+  <li>Fare da ponte tra stakeholder tecnici e non tecnici, <span class="highlight">semplificando concetti complessi</span>, allineando tutti e facilitando una <span class="highlight">presa di decisioni informata</span>.</li>  
+</ul>
       `,
       },
     ],
@@ -630,45 +761,170 @@ export const CV_INFO: CVInfo = {
         skillCategory: 'Tecnologie Web di Base',
         icon: 'code',
         skillList: [
-          { skillName: 'HTML5' },
-          { skillName: 'CSS3' },
-          { skillName: 'SASS/SCSS' },
-          { skillName: 'JavaScript' },
-          { skillName: 'TypeScript' },
+          {
+            skillName: 'HTML5',
+            isLinkedToCertification: false,
+            linkToCertification: '',
+          },
+          {
+            skillName: 'CSS3',
+            isLinkedToCertification: false,
+            linkToCertification: '',
+          },
+          {
+            skillName: 'SASS/SCSS',
+            isLinkedToCertification: false,
+            linkToCertification: '',
+          },
+          {
+            skillName: 'Javascript',
+            isLinkedToCertification: false,
+            linkToCertification: '',
+          },
+          {
+            skillName: 'TypeScript',
+            isLinkedToCertification: false,
+            linkToCertification: '',
+          },
         ],
       },
       {
-        skillCategory: 'Framework & Librerie',
+        skillCategory: 'Framework e Librerie',
         icon: 'developer_mode',
         skillList: [
-          { skillName: 'Angular 2+' },
-          { skillName: 'Redux' },
-          { skillName: 'RxJs' },
-          { skillName: 'Angular Material' },
-          { skillName: 'Cypress' },
-          { skillName: 'Bootstrap' },
-          { skillName: 'Tailwind CSS' },
+          {
+            skillName: 'Angular 2+',
+            isLinkedToCertification: false,
+            linkToCertification: '',
+          },
+          {
+            skillName: 'Redux',
+            isLinkedToCertification: false,
+            linkToCertification: '',
+          },
+          {
+            skillName: 'RxJs',
+            isLinkedToCertification: false,
+            linkToCertification: '',
+          },
+          {
+            skillName: 'Angular Material',
+            isLinkedToCertification: false,
+            linkToCertification: '',
+          },
+          {
+            skillName: 'Cypress',
+            isLinkedToCertification: false,
+            linkToCertification: '',
+          },
+          {
+            skillName: 'Bootstrap',
+            isLinkedToCertification: false,
+            linkToCertification: '',
+          },
+          {
+            skillName: 'Tailwind CSS',
+            isLinkedToCertification: false,
+            linkToCertification: '',
+          },
         ],
       },
       {
-        skillCategory: 'API & Backend',
+        skillCategory: 'API & Back-End',
         icon: 'dns',
         skillList: [
-          { skillName: 'API RESTful' },
-          { skillName: 'PHP' },
-          { skillName: 'Symfony' },
+          {
+            skillName: 'API RESTful',
+            isLinkedToCertification: false,
+            linkToCertification: '',
+          },
+          {
+            skillName: 'Php',
+            isLinkedToCertification: false,
+            linkToCertification: '',
+          },
+          {
+            skillName: 'Symfony',
+            isLinkedToCertification: false,
+            linkToCertification: '',
+          },
         ],
       },
       {
-        skillCategory: 'Controllo Versioni & Gestione Pacchetti',
+        skillCategory: 'Versioning & Pacchetti',
         icon: 'device_hub',
         skillList: [
-          { skillName: 'Git' },
-          { skillName: 'GitHub' },
-          { skillName: 'NPM/Yarn' },
+          {
+            skillName: 'Git',
+            isLinkedToCertification: false,
+            linkToCertification: '',
+          },
+          {
+            skillName: 'GitHub',
+            isLinkedToCertification: false,
+            linkToCertification: '',
+          },
+          {
+            skillName: 'NPM/Yarn',
+            isLinkedToCertification: false,
+            linkToCertification: '',
+          },
+        ],
+      },
+      {
+        skillCategory: 'Tecnologie che sto esplorando',
+        icon: 'star_half',
+        skillList: [
+          {
+            skillName: 'Node.js',
+            isLinkedToCertification: false,
+            linkToCertification: '',
+          },
+          {
+            skillName: 'Docker',
+            isLinkedToCertification: false,
+            linkToCertification: '',
+          },
+          {
+            skillName: 'Pipeline CI/CD',
+            isLinkedToCertification: false,
+            linkToCertification: '',
+          },
+          {
+            skillName: 'AWS Cloud',
+            isLinkedToCertification: false,
+            linkToCertification: '',
+          },
+        ],
+      },
+      {
+        skillCategory: 'Design & Gestione Progetti',
+        icon: 'dashboard',
+        skillList: [
+          {
+            skillName: 'Principi Agile/Scrum',
+            isLinkedToCertification: false,
+            linkToCertification: '',
+          },
+          {
+            skillName: 'Jira',
+            isLinkedToCertification: false,
+            linkToCertification: '',
+          },
+          {
+            skillName: 'Miro',
+            isLinkedToCertification: false,
+            linkToCertification: '',
+          },
+          {
+            skillName: 'Figma',
+            isLinkedToCertification: false,
+            linkToCertification: '',
+          },
         ],
       },
     ],
+
     languages: [
       {
         language: 'Italiano',

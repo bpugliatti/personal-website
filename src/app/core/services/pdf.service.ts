@@ -1,132 +1,147 @@
 import { Injectable } from '@angular/core';
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
+import { PDF } from '../constants/pdf.constant';
+import { PdfImageConfig } from '../models/pdf.model';
 
 @Injectable({ providedIn: 'root' })
 export class PdfService {
-  constructor() {}
-
-  private async generatePdf(elementId: string): Promise<jsPDF | null> {
-    const element = document.getElementById(elementId);
-    if (!element) return null;
-
-    const canvas = await this.captureElement(element);
-    return this.createPdfFromCanvas(canvas, element);
-  }
-
-  private async captureElement(
-    element: HTMLElement
-  ): Promise<HTMLCanvasElement> {
-    return await html2canvas(element, {
-      scale: 2,
-      backgroundColor:
-        window.getComputedStyle(element).backgroundColor || '#ffffff',
-      ignoreElements: (el) => el.classList.contains('no-print'),
-    });
-  }
-
-  private createPdfFromCanvas(
-    canvas: HTMLCanvasElement,
-    element: HTMLElement
-  ): jsPDF {
-    const pdf = new jsPDF('p', 'mm', 'a4');
-    const imgData = canvas.toDataURL('image/png');
-    const pageWidth = 210,
-      pageHeight = 297;
-    const imgWidth = pageWidth;
-    let imgHeight = (canvas.height * imgWidth) / canvas.width;
-    let yPosition = 0;
-    const marginTop = 20,
-      bottomMargin = 10;
-
-    const breakPositions = this.getBreakPositions(element);
-
-    while (yPosition < imgHeight) {
-      if (yPosition > 0) pdf.addPage();
-      pdf.setFillColor(
-        window.getComputedStyle(element).backgroundColor || '#ffffff'
-      );
-      pdf.rect(0, 0, pageWidth, pageHeight, 'F');
-      yPosition = this.addPageImage(
-        pdf,
-        canvas,
-        imgWidth,
-        yPosition,
-        imgHeight,
-        breakPositions,
-        marginTop,
-        bottomMargin
-      );
-    }
-    return pdf;
-  }
-
-  private getBreakPositions(element: HTMLElement): number[] {
-    return [...element.querySelectorAll('.avoid-page-break')].map(
-      (child) =>
-        child.getBoundingClientRect().top +
-        window.scrollY -
-        element.getBoundingClientRect().top
-    );
-  }
-
-  private addPageImage(
-    pdf: jsPDF,
-    canvas: HTMLCanvasElement,
-    imgWidth: number,
-    yPosition: number,
-    imgHeight: number,
-    breakPositions: number[],
-    marginTop: number,
-    bottomMargin: number
-  ): number {
-    let nextBreak = breakPositions.find(
-      (pos) =>
-        pos > yPosition && pos < yPosition + 297 - marginTop - bottomMargin
-    );
-    let cropHeight = Math.min(
-      nextBreak ? nextBreak - yPosition : 297 - marginTop - bottomMargin,
-      imgHeight - yPosition
-    );
-
-    const croppedCanvas = document.createElement('canvas');
-    Object.assign(croppedCanvas, {
-      width: canvas.width,
-      height: (cropHeight * canvas.width) / imgWidth,
-    });
-    const croppedCtx = croppedCanvas.getContext('2d');
-
-    croppedCtx?.drawImage(
-      canvas,
-      0,
-      yPosition * (canvas.width / imgWidth),
-      croppedCanvas.width,
-      croppedCanvas.height,
-      0,
-      0,
-      croppedCanvas.width,
-      croppedCanvas.height
-    );
-    pdf.addImage(
-      croppedCanvas.toDataURL('image/png'),
-      'PNG',
-      0,
-      yPosition > 0 ? marginTop : 0,
-      imgWidth,
-      cropHeight
-    );
-
-    return yPosition + cropHeight;
-  }
+  #tempCanvas: HTMLCanvasElement = document.createElement('canvas');
+  #tempCanvasContext: CanvasRenderingContext2D | null =
+    this.#tempCanvas.getContext('2d');
+  #config!: PdfImageConfig;
 
   async printPDF(elementId: string): Promise<void> {
-    const pdf = await this.generatePdf(elementId);
-    if (pdf)
-      window.open(URL.createObjectURL(pdf.output('blob')), '_blank')?.print();
+    const pdf = await this.#generatePdf(elementId);
+    if (pdf) {
+      const pdfBlob = pdf.output('blob');
+      window.open(URL.createObjectURL(pdfBlob), '_blank')?.print();
+    }
   }
 
   async savePDF(elementId: string, fileName: string): Promise<void> {
-    const pdf = await this.generatePdf(elementId);
-    pdf?.save(`${fileName}.pdf`);
+    const pdf = await this.#generatePdf(elementId);
+    if (pdf) {
+      pdf.save(`${fileName}.pdf`);
+    }
+  }
+
+  /**
+   * Generates a PDF from the given element ID by capturing it as an image.
+   */
+  async #generatePdf(elementId: string): Promise<jsPDF | null> {
+    const element = document.getElementById(elementId);
+    if (!element) return null;
+
+    const canvas = await this.#captureElement(element);
+
+    // 🔹 Create a new jsPDF instance each time!
+    const pdf = new jsPDF();
+
+    this.#config = new PdfImageConfig(pdf, canvas);
+    return this.#generatePdfPages(pdf);
+  }
+
+  /**
+   * Captures an HTML element and converts it into a canvas image.
+   * Adjusts styles temporarily to ensure proper rendering.
+   */
+  async #captureElement(element: HTMLElement): Promise<HTMLCanvasElement> {
+    if (!element) throw new Error('Element not found');
+
+    const originalRootStyle = element.getAttribute('style');
+    const elementsToHide = Array.from(
+      element.querySelectorAll('.no-print')
+    ) as HTMLElement[];
+    const hiddenElementsStyles = new Map(
+      elementsToHide.map((el) => [el, el.getAttribute('style')])
+    );
+
+    elementsToHide.forEach((el) => (el.style.display = 'none'));
+    Object.assign(element.style, {
+      width: PDF.ELEMENT_WIDTH,
+      backgroundColor: PDF.OPTIONS.backgroundColor,
+    });
+
+    try {
+      return await html2canvas(element, { ...PDF.OPTIONS, scrollY: 0 });
+    } finally {
+      hiddenElementsStyles.forEach((style, el) =>
+        style ? el.setAttribute('style', style) : el.removeAttribute('style')
+      );
+      originalRootStyle
+        ? element.setAttribute('style', originalRootStyle)
+        : element.removeAttribute('style');
+    }
+  }
+
+  /**
+   * Iterates through the captured content and adds pages to the PDF accordingly.
+   */
+  #generatePdfPages(pdf: jsPDF): jsPDF {
+    while (this.#config.yPosition < this.#config.imgHeight) {
+      if (!this.#config.firstPage) pdf.addPage();
+      this.#addBackgroundColor(pdf);
+      this.#config.yPosition = this.#insertImageToPdf(pdf);
+      this.#config.firstPage = false;
+    }
+
+    return pdf;
+  }
+
+  /**
+   * Adds a white background to the PDF to prevent transparent artifacts.
+   */
+  #addBackgroundColor(pdf: jsPDF): void {
+    pdf.setFillColor(PDF.OPTIONS.backgroundColor);
+    pdf.rect(0, 0, PDF.PAGE_SETTINGS.width, PDF.PAGE_SETTINGS.height, 'F');
+  }
+
+  /**
+   * Adds a portion of the captured content as an image to the PDF.
+   */
+  #insertImageToPdf(pdf: jsPDF): number {
+    const cropHeight = Math.min(
+      this.#config.maxPageHeight,
+      this.#config.imgHeight - this.#config.yPosition
+    );
+    const croppedCanvas = this.#cropCanvasSection(cropHeight);
+
+    pdf.addImage(
+      croppedCanvas.toDataURL('image/png'),
+      'PNG',
+      this.#config.firstPage ? 0 : PDF.PAGE_SETTINGS.leftRightMargin,
+      this.#config.firstPage ? 0 : PDF.PAGE_SETTINGS.marginTop,
+      this.#config.firstPage ? PDF.PAGE_SETTINGS.width : this.#config.imgWidth,
+      cropHeight
+    );
+
+    return this.#config.yPosition + cropHeight;
+  }
+
+  /**
+   * Crops a portion of the captured canvas for use in paginated PDFs.
+   */
+  #cropCanvasSection(cropHeight: number): HTMLCanvasElement {
+    this.#tempCanvas.width = this.#config.canvas.width;
+    this.#tempCanvas.height =
+      (cropHeight * this.#config.canvas.width) / this.#config.imgWidth;
+
+    if (this.#tempCanvasContext) {
+      this.#tempCanvasContext.drawImage(
+        this.#config.canvas,
+        0,
+        this.#config.yPosition *
+          (this.#config.canvas.width / this.#config.imgWidth),
+        this.#tempCanvas.width,
+        this.#tempCanvas.height,
+        0,
+        0,
+        this.#tempCanvas.width,
+        this.#tempCanvas.height
+      );
+    }
+
+    return this.#tempCanvas;
   }
 }
