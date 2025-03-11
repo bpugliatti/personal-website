@@ -47,20 +47,30 @@ export class PdfService {
    * Adjusts styles temporarily to ensure proper rendering.
    */
   async #captureElement(element: HTMLElement): Promise<HTMLCanvasElement> {
-    const originalStyle = element.getAttribute('style');
+    if (!element) throw new Error('Element not found');
+
+    const originalRootStyle = element.getAttribute('style');
+    const elementsToHide = Array.from(
+      element.querySelectorAll('.no-print')
+    ) as HTMLElement[];
+    const hiddenElementsStyles = new Map(
+      elementsToHide.map((el) => [el, el.getAttribute('style')])
+    );
+
+    elementsToHide.forEach((el) => (el.style.display = 'none'));
     Object.assign(element.style, {
       width: PDF.ELEMENT_WIDTH,
       backgroundColor: PDF.OPTIONS.backgroundColor,
     });
 
     try {
-      return await html2canvas(element, {
-        ...PDF.OPTIONS,
-        scrollY: 0,
-      });
+      return await html2canvas(element, { ...PDF.OPTIONS, scrollY: 0 });
     } finally {
-      originalStyle
-        ? element.setAttribute('style', originalStyle)
+      hiddenElementsStyles.forEach((style, el) =>
+        style ? el.setAttribute('style', style) : el.removeAttribute('style')
+      );
+      originalRootStyle
+        ? element.setAttribute('style', originalRootStyle)
         : element.removeAttribute('style');
     }
   }
