@@ -19,21 +19,21 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20 # Use stable version
+          node-version: 22 # Change if needed
 
       - name: Install dependencies
         run: npm ci
 
       - name: Build Angular App
+        run: npm run build -- --output-path=dist --base-href="/personal-website/"
+
+      - name: Set Git Identity
         run: |
-          npm run build
-          touch dist/personal-website/.nojekyll # Ensure GitHub Pages works correctly
+          git config --global user.email "github-actions@github.com"
+          git config --global user.name "github-actions"
 
       - name: Deploy to GitHub Pages
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Use GitHub Token for authentication
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          npm install -g gh-pages
-          git config --global user.email "github-actions@github.com"
-          git config --global user.name "github-actions"
-          npx gh-pages --dist dist/personal-website --repo "https://${{ secrets.GITHUB_TOKEN }}@github.com/YOUR_USERNAME/personal-website.git" --branch gh-pages
+          npx gh-pages -d dist --repo=https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/bpugliatti/personal-website.git
