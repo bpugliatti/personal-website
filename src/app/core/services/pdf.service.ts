@@ -1,18 +1,21 @@
 import { Injectable } from '@angular/core';
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
+import { PDF } from '../constants/pdf.constant';
+import { PdfImageConfig } from '../models/pdf.model';
 
 @Injectable({ providedIn: 'root' })
 export class PdfService {
-  #PAGE_WIDTH = 210; // A4 width in mm
-  #PAGE_HEIGHT = 297; // A4 height in mm
-  #MARGIN_TOP = 10;
-  #MARGIN_BOTTOM = 5;
+  #tempCanvas: HTMLCanvasElement = document.createElement('canvas');
+  #tempCanvasContext: CanvasRenderingContext2D | null =
+    this.#tempCanvas.getContext('2d');
+  #config!: PdfImageConfig;
 
   async printPDF(elementId: string): Promise<void> {
     const pdf = await this.#generatePdf(elementId);
     if (pdf) {
-      window.open(URL.createObjectURL(pdf.output('blob')), '_blank')?.print();
+      const pdfBlob = pdf.output('blob');
+      window.open(URL.createObjectURL(pdfBlob), '_blank')?.print();
     }
   }
 
@@ -23,183 +26,112 @@ export class PdfService {
     }
   }
 
+  /**
+   * Generates a PDF from the given element ID by capturing it as an image.
+   */
   async #generatePdf(elementId: string): Promise<jsPDF | null> {
     const element = document.getElementById(elementId);
     if (!element) return null;
 
-    const leftRightMargin = this.#shouldApplyMargins(element.clientWidth)
-      ? 10
-      : 0;
     const canvas = await this.#captureElement(element);
 
-    return this.#createPdfFromCanvas(canvas, element, leftRightMargin);
+    // 🔹 Create a new jsPDF instance each time!
+    const pdf = new jsPDF();
+
+    this.#config = new PdfImageConfig(pdf, canvas);
+    return this.#generatePdfPages(pdf);
   }
 
-  #shouldApplyMargins(elementWidth: number): boolean {
-    return elementWidth < 750;
-  }
-
+  /**
+   * Captures an HTML element and converts it into a canvas image.
+   * Adjusts styles temporarily to ensure proper rendering.
+   */
   async #captureElement(element: HTMLElement): Promise<HTMLCanvasElement> {
     const originalStyle = element.getAttribute('style');
-    element.style.width = '270mm';
-    element.style.backgroundColor = '#ffffff';
+    Object.assign(element.style, {
+      width: PDF.ELEMENT_WIDTH,
+      backgroundColor: PDF.OPTIONS.backgroundColor,
+    });
 
     try {
       return await html2canvas(element, {
-        scale: 2,
-        backgroundColor: '#ffffff',
-        ignoreElements: (el) => el.classList.contains('no-print'),
+        ...PDF.OPTIONS,
+        scrollY: 0,
       });
     } finally {
-      this.#restoreElementStyle(element, originalStyle);
+      originalStyle
+        ? element.setAttribute('style', originalStyle)
+        : element.removeAttribute('style');
     }
   }
 
-  #restoreElementStyle(
-    element: HTMLElement,
-    originalStyle: string | null
-  ): void {
-    if (originalStyle) {
-      element.setAttribute('style', originalStyle);
-    } else {
-      element.removeAttribute('style');
-    }
-  }
-
-  #createPdfFromCanvas(
-    canvas: HTMLCanvasElement,
-    element: HTMLElement,
-    leftRightMargin: number
-  ): jsPDF {
-    const pdf = new jsPDF('p', 'mm', 'a4');
-    const imgWidth = this.#PAGE_WIDTH - 2 * leftRightMargin;
-    let imgHeight = (canvas.height * imgWidth) / canvas.width;
-    let yPosition = 0;
-
-    const breakPositions = this.#getBreakPositions(
-      element,
-      this.#PAGE_HEIGHT - this.#MARGIN_TOP - this.#MARGIN_BOTTOM
-    );
-
-    while (yPosition < imgHeight) {
-      if (yPosition > 0) pdf.addPage();
-      this.#addWhiteBackground(pdf);
-      yPosition = this.#addPageImage(
-        pdf,
-        canvas,
-        imgWidth,
-        yPosition,
-        imgHeight,
-        breakPositions,
-        leftRightMargin
-      );
+  /**
+   * Iterates through the captured content and adds pages to the PDF accordingly.
+   */
+  #generatePdfPages(pdf: jsPDF): jsPDF {
+    while (this.#config.yPosition < this.#config.imgHeight) {
+      if (!this.#config.firstPage) pdf.addPage();
+      this.#addBackgroundColor(pdf);
+      this.#config.yPosition = this.#insertImageToPdf(pdf);
+      this.#config.firstPage = false;
     }
 
     return pdf;
   }
 
-  #addWhiteBackground(pdf: jsPDF): void {
-    pdf.setFillColor('#ffffff');
-    pdf.rect(0, 0, this.#PAGE_WIDTH, this.#PAGE_HEIGHT, 'F');
+  /**
+   * Adds a white background to the PDF to prevent transparent artifacts.
+   */
+  #addBackgroundColor(pdf: jsPDF): void {
+    pdf.setFillColor(PDF.OPTIONS.backgroundColor);
+    pdf.rect(0, 0, PDF.PAGE_SETTINGS.width, PDF.PAGE_SETTINGS.height, 'F');
   }
 
-  #getBreakPositions(element: HTMLElement, maxPageHeight: number): number[] {
-    let breakPoints: number[] = [];
-    let yOffset = 0;
-
-    element.querySelectorAll('*').forEach((child) => {
-      const rect = child.getBoundingClientRect();
-      const childHeight = (child as HTMLElement).offsetHeight;
-
-      // Ensure element is visible
-      if (childHeight === 0) return;
-
-      const childBottom = yOffset + childHeight;
-
-      // If this element exceeds max height, move to next page
-      if (childBottom > maxPageHeight) {
-        breakPoints.push(yOffset);
-        yOffset = childHeight; // Start a new page with this element
-      } else {
-        yOffset = childBottom; // Move down the page
-      }
-    });
-
-    return breakPoints;
-  }
-
-  #addPageImage(
-    pdf: jsPDF,
-    canvas: HTMLCanvasElement,
-    imgWidth: number,
-    yPosition: number,
-    imgHeight: number,
-    breakPositions: number[],
-    leftRightMargin: number
-  ): number {
-    let nextBreak = breakPositions.find(
-      (pos) =>
-        pos > yPosition &&
-        pos <
-          yPosition + this.#PAGE_HEIGHT - this.#MARGIN_TOP - this.#MARGIN_BOTTOM
+  /**
+   * Adds a portion of the captured content as an image to the PDF.
+   */
+  #insertImageToPdf(pdf: jsPDF): number {
+    const cropHeight = Math.min(
+      this.#config.maxPageHeight,
+      this.#config.imgHeight - this.#config.yPosition
     );
-
-    let cropHeight = Math.min(
-      nextBreak
-        ? nextBreak - yPosition
-        : this.#PAGE_HEIGHT - this.#MARGIN_TOP - this.#MARGIN_BOTTOM,
-      imgHeight - yPosition
-    );
-
-    // Ensure we're not cutting text in half
-    if (nextBreak && nextBreak - yPosition < 50) {
-      cropHeight = nextBreak - yPosition + 30; // Add extra space to avoid cut-off
-    }
-
-    const croppedCanvas = this.#createCroppedCanvas(
-      canvas,
-      imgWidth,
-      cropHeight,
-      yPosition
-    );
+    const croppedCanvas = this.#cropCanvasSection(cropHeight);
 
     pdf.addImage(
       croppedCanvas.toDataURL('image/png'),
       'PNG',
-      leftRightMargin,
-      yPosition > 0 ? this.#MARGIN_TOP : 0,
-      imgWidth,
+      this.#config.firstPage ? 0 : PDF.PAGE_SETTINGS.leftRightMargin,
+      this.#config.firstPage ? 0 : PDF.PAGE_SETTINGS.marginTop,
+      this.#config.firstPage ? PDF.PAGE_SETTINGS.width : this.#config.imgWidth,
       cropHeight
     );
 
-    return yPosition + cropHeight;
+    return this.#config.yPosition + cropHeight;
   }
 
-  #createCroppedCanvas(
-    canvas: HTMLCanvasElement,
-    imgWidth: number,
-    cropHeight: number,
-    yPosition: number
-  ): HTMLCanvasElement {
-    const croppedCanvas = document.createElement('canvas');
-    Object.assign(croppedCanvas, {
-      width: canvas.width,
-      height: (cropHeight * canvas.width) / imgWidth,
-    });
+  /**
+   * Crops a portion of the captured canvas for use in paginated PDFs.
+   */
+  #cropCanvasSection(cropHeight: number): HTMLCanvasElement {
+    this.#tempCanvas.width = this.#config.canvas.width;
+    this.#tempCanvas.height =
+      (cropHeight * this.#config.canvas.width) / this.#config.imgWidth;
 
-    const croppedCtx = croppedCanvas.getContext('2d');
-    croppedCtx?.drawImage(
-      canvas,
-      0,
-      yPosition * (canvas.width / imgWidth),
-      croppedCanvas.width,
-      croppedCanvas.height,
-      0,
-      0,
-      croppedCanvas.width,
-      croppedCanvas.height
-    );
+    if (this.#tempCanvasContext) {
+      this.#tempCanvasContext.drawImage(
+        this.#config.canvas,
+        0,
+        this.#config.yPosition *
+          (this.#config.canvas.width / this.#config.imgWidth),
+        this.#tempCanvas.width,
+        this.#tempCanvas.height,
+        0,
+        0,
+        this.#tempCanvas.width,
+        this.#tempCanvas.height
+      );
+    }
 
-    return croppedCanvas;
+    return this.#tempCanvas;
   }
 }
