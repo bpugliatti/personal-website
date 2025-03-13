@@ -69,9 +69,11 @@ export class PdfService {
       hiddenElementsStyles.forEach((style, el) =>
         style ? el.setAttribute('style', style) : el.removeAttribute('style')
       );
-      originalRootStyle
-        ? element.setAttribute('style', originalRootStyle)
-        : element.removeAttribute('style');
+      if (originalRootStyle) {
+        element.setAttribute('style', originalRootStyle);
+      } else {
+        element.removeAttribute('style');
+      }
     }
   }
 

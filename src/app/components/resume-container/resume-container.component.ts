@@ -1,10 +1,4 @@
-import {
-  ChangeDetectorRef,
-  Component,
-  computed,
-  inject,
-  OnInit,
-} from '@angular/core';
+import { Component, computed, inject, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ContactItemComponent } from '../contact-item/contact-item.component';
 import { HeaderComponent } from '../header/header.component';
