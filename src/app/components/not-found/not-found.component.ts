@@ -6,8 +6,6 @@ import { MatIconModule } from '@angular/material/icon';
   selector: 'app-not-found',
   imports: [MatButtonModule, MatIconModule],
   templateUrl: './not-found.component.html',
-  styleUrl: './not-found.component.scss'
+  styleUrl: './not-found.component.scss',
 })
-export class NotFoundComponent {
-
-}
+export class NotFoundComponent {}

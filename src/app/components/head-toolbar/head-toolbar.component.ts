@@ -30,7 +30,7 @@ export class HeadToolbarComponent {
     const currentLang = this.#languageService.currentLang();
     this.#pdfService.savePDF(
       'cv-container',
-      `${this.cvName} Resume - ${currentLang.toUpperCase()}`
+      `${this.cvName} Resume - ${currentLang.toUpperCase()}`,
     );
   }
 

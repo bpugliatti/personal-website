@@ -13,7 +13,7 @@ export class ExperienceComponent {
 
   get sanitizedDescription(): SafeHtml {
     return this.sanitizer.bypassSecurityTrustHtml(
-      this.experience?.extraDescription || ''
+      this.experience?.extraDescription || '',
     );
   }
 }
