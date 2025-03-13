@@ -1,13 +1,15 @@
 <mat-list class="skill-list">
   @for (skillGroup of formattedSkillGroups; track skillGroup.skillCategory) {
-  <mat-list-item>
-    <mat-icon class="custom-icon skill-icon" matListItemIcon>{{
-      skillGroup.icon
-    }}</mat-icon>
-    <span matListItemTitle>
-      <strong>{{ skillGroup.skillCategory }}</strong>
-    </span>
-    <span matListItemLine>{{ skillGroup.formattedSkills }}</span>
-  </mat-list-item>
-  } @empty { There are no items. }
+    <mat-list-item>
+      <mat-icon class="custom-icon skill-icon" matListItemIcon>{{
+        skillGroup.icon
+      }}</mat-icon>
+      <span matListItemTitle>
+        <strong>{{ skillGroup.skillCategory }}</strong>
+      </span>
+      <span matListItemLine>{{ skillGroup.formattedSkills }}</span>
+    </mat-list-item>
+  } @empty {
+    There are no items.
+  }
 </mat-list>

@@ -8,9 +8,8 @@ describe('HeadToolbarComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HeadToolbarComponent]
-    })
-    .compileComponents();
+      imports: [HeadToolbarComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(HeadToolbarComponent);
     component = fixture.componentInstance;

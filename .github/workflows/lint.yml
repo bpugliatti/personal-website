@@ -1,14 +1,13 @@
-name: Lint Angular Project
+name: Lint and Format Check
 
 on:
-  push:
+  pull_request:
     branches:
       - main
       - develop
-      - feature/*
 
 jobs:
-  lint:
+  lint-format:
     runs-on: ubuntu-latest
 
     steps:
@@ -26,3 +25,6 @@ jobs:
 
       - name: Run ESLint
         run: npm run lint
+
+      - name: Run Prettier Check
+        run: npx prettier --check "**/*.{ts,js,json,html,scss}"

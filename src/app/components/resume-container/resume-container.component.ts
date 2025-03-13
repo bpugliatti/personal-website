@@ -1,13 +1,13 @@
 import { Component, computed, inject, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { CV_INFO } from '../../core/constants/cv-info.constant';
+import { LanguageService } from '../../core/services/language.service';
 import { ContactItemComponent } from '../contact-item/contact-item.component';
+import { ExperienceComponent } from '../experience/experience.component';
+import { HeadToolbarComponent } from '../head-toolbar/head-toolbar.component';
 import { HeaderComponent } from '../header/header.component';
 import { LangugeProficiencyComponent } from '../languge-proficiency/languge-proficiency.component';
 import { SkillComponent } from '../skill/skill.component';
-import { ExperienceComponent } from '../experience/experience.component';
-import { CV_INFO } from '../../core/constants/cv-info.constant';
-import { HeadToolbarComponent } from '../head-toolbar/head-toolbar.component';
-import { LanguageService } from '../../core/services/language.service';
 
 @Component({
   selector: 'app-resume-container',
