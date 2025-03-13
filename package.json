@@ -10,7 +10,8 @@
     "deploy": "gh-pages -d dist",
     "lint": "ng lint",
     "prepare": "husky install",
-    "pre-commit": ""
+    "pre-commit": "",
+    "format": "prettier --write '**/*.{ts,js,json,html,scss}'"
   },
   "private": true,
   "dependencies": {

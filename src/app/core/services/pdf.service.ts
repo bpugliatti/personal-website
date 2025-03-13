@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
+import jsPDF from 'jspdf';
 import { PDF } from '../constants/pdf.constant';
 import { PdfImageConfig } from '../models/pdf.model';
 
@@ -51,10 +51,10 @@ export class PdfService {
 
     const originalRootStyle = element.getAttribute('style');
     const elementsToHide = Array.from(
-      element.querySelectorAll('.no-print')
+      element.querySelectorAll('.no-print'),
     ) as HTMLElement[];
     const hiddenElementsStyles = new Map(
-      elementsToHide.map((el) => [el, el.getAttribute('style')])
+      elementsToHide.map((el) => [el, el.getAttribute('style')]),
     );
 
     elementsToHide.forEach((el) => (el.style.display = 'none'));
@@ -67,7 +67,7 @@ export class PdfService {
       return await html2canvas(element, { ...PDF.OPTIONS, scrollY: 0 });
     } finally {
       hiddenElementsStyles.forEach((style, el) =>
-        style ? el.setAttribute('style', style) : el.removeAttribute('style')
+        style ? el.setAttribute('style', style) : el.removeAttribute('style'),
       );
       if (originalRootStyle) {
         element.setAttribute('style', originalRootStyle);
@@ -105,7 +105,7 @@ export class PdfService {
   #insertImageToPdf(pdf: jsPDF): number {
     const cropHeight = Math.min(
       this.#config.maxPageHeight,
-      this.#config.imgHeight - this.#config.yPosition
+      this.#config.imgHeight - this.#config.yPosition,
     );
     const croppedCanvas = this.#cropCanvasSection(cropHeight);
 
@@ -115,7 +115,7 @@ export class PdfService {
       this.#config.firstPage ? 0 : PDF.PAGE_SETTINGS.leftRightMargin,
       this.#config.firstPage ? 0 : PDF.PAGE_SETTINGS.marginTop,
       this.#config.firstPage ? PDF.PAGE_SETTINGS.width : this.#config.imgWidth,
-      cropHeight
+      cropHeight,
     );
 
     return this.#config.yPosition + cropHeight;
@@ -140,7 +140,7 @@ export class PdfService {
         0,
         0,
         this.#tempCanvas.width,
-        this.#tempCanvas.height
+        this.#tempCanvas.height,
       );
     }
 
