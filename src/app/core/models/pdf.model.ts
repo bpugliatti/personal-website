@@ -1,4 +1,3 @@
-import { inject } from '@angular/core';
 import jsPDF from 'jspdf';
 import { PDF } from '../constants/pdf.constant';
 
