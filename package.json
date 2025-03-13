@@ -8,7 +8,9 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "deploy": "gh-pages -d dist",
-    "lint": "ng lint"
+    "lint": "ng lint",
+    "prepare": "husky install",
+    "pre-commit": ""
   },
   "private": true,
   "dependencies": {
@@ -38,12 +40,16 @@
     "angular-eslint": "19.2.1",
     "eslint": "^9.22.0",
     "gh-pages": "^6.3.0",
+    "husky": "^8.0.0",
     "jasmine-core": "~5.6.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.2.0",
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
+    "lint-staged": "^15.5.0",
+    "prettier": "^3.5.3",
+    "sort-package-json": "^3.0.0",
     "typescript": "^5.8.2",
     "typescript-eslint": "8.26.0"
   }
