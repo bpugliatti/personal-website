@@ -26,26 +26,18 @@ export class PdfService {
     }
   }
 
-  /**
-   * Generates a PDF from the given element ID by capturing it as an image.
-   */
   async #generatePdf(elementId: string): Promise<jsPDF | null> {
     const element = document.getElementById(elementId);
     if (!element) return null;
 
     const canvas = await this.#captureElement(element);
 
-    // 🔹 Create a new jsPDF instance each time!
     const pdf = new jsPDF();
 
     this.#config = new PdfImageConfig(pdf, canvas);
     return this.#generatePdfPages(pdf);
   }
 
-  /**
-   * Captures an HTML element and converts it into a canvas image.
-   * Adjusts styles temporarily to ensure proper rendering.
-   */
   async #captureElement(element: HTMLElement): Promise<HTMLCanvasElement> {
     if (!element) throw new Error('Element not found');
 
@@ -77,9 +69,7 @@ export class PdfService {
     }
   }
 
-  /**
-   * Iterates through the captured content and adds pages to the PDF accordingly.
-   */
+  // Iterates through the captured content and adds pages to the PDF accordingly.
   #generatePdfPages(pdf: jsPDF): jsPDF {
     while (this.#config.yPosition < this.#config.imgHeight) {
       if (!this.#config.firstPage) pdf.addPage();
@@ -91,17 +81,11 @@ export class PdfService {
     return pdf;
   }
 
-  /**
-   * Adds a white background to the PDF to prevent transparent artifacts.
-   */
   #addBackgroundColor(pdf: jsPDF): void {
     pdf.setFillColor(PDF.OPTIONS.backgroundColor);
     pdf.rect(0, 0, PDF.PAGE_SETTINGS.width, PDF.PAGE_SETTINGS.height, 'F');
   }
 
-  /**
-   * Adds a portion of the captured content as an image to the PDF.
-   */
   #insertImageToPdf(pdf: jsPDF): number {
     const cropHeight = Math.min(
       this.#config.maxPageHeight,
@@ -121,9 +105,7 @@ export class PdfService {
     return this.#config.yPosition + cropHeight;
   }
 
-  /**
-   * Crops a portion of the captured canvas for use in paginated PDFs.
-   */
+  // Crops a portion of the captured canvas for use in paginated PDFs.
   #cropCanvasSection(cropHeight: number): HTMLCanvasElement {
     this.#tempCanvas.width = this.#config.canvas.width;
     this.#tempCanvas.height =
