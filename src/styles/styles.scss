@@ -42,6 +42,26 @@ html {
   );
 }
 
+@mixin apply-green-mode {
+  color-scheme: light;
+  @include mat.theme(
+    (
+      color: (
+        primary: custom-theme.$green-palette,
+        tertiary: custom-theme.$tertiary-palette,
+      ),
+      typography: (
+        plain-family: Rubik,
+        brand-family: Open Sans,
+        bold-weight: 900,
+        medium-weight: 500,
+        regular-weight: 300,
+      ),
+      density: 0,
+    )
+  );
+}
+
 @mixin apply-monochrome-mode {
   color-scheme: light;
   @include mat.theme(
@@ -107,6 +127,22 @@ mat-list-item {
     (
       active-indicator-color: custom-theme.get-secondary(30),
       track-color: custom-theme.get-secondary(95),
+    )
+  );
+}
+
+.container.green {
+  @include apply-green-mode;
+  .custom-icon,
+  a:hover,
+  mat-icon {
+    color: custom-theme.get-green(30) !important;
+    transition: 0.5s;
+  }
+  @include mat.progress-bar-overrides(
+    (
+      active-indicator-color: custom-theme.get-green(30),
+      track-color: custom-theme.get-green(95),
     )
   );
 }

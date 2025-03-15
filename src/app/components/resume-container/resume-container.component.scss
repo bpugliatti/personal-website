@@ -25,6 +25,18 @@
       background-position: 5% 110%;
     }
   }
+  &.green {
+    background: custom-theme.get-green(99)
+      url("../../../../public/illus/watercolor-angle-top-green.png") no-repeat;
+    background-position: -150px -250px;
+    background-size: 1200px;
+    .category-title {
+      background: url("../../../../public/illus/watercolor-line-green.png")
+        no-repeat;
+      background-size: 70% 50%;
+      background-position: 5% 110%;
+    }
+  }
   &.monochrome {
     background: custom-theme.get-neutral(100)
       url("../../../../public/illus/watercolor-angle-top-monoc.png") no-repeat;

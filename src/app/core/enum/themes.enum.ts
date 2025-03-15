@@ -1,5 +1,6 @@
 export enum Themes {
-  Pink = 'pink',
-  Blue = 'blue',
-  Monochrome = 'monochrome',
+  PINK = 'pink',
+  BLUE = 'blue',
+  MONOCHROME = 'monochrome',
+  GREEN = 'green',
 }

@@ -7,7 +7,7 @@ import { Themes } from '../enum/themes.enum';
 })
 export class ThemesService {
   private readonly themeKey = 'selectedTheme';
-  private currentTheme = new BehaviorSubject<Themes>(Themes.Blue);
+  private currentTheme = new BehaviorSubject<Themes>(Themes.GREEN);
 
   setTheme(theme: Themes): void {
     localStorage.setItem(this.themeKey, theme);
