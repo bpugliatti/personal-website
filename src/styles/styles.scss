@@ -95,8 +95,7 @@ mat-list-item {
   padding-left: 0;
 }
 
-// ✅ Apply the Dark Mode Theme When `.dark-mode` Class is Added
-html.blue-mode {
+.container.blue {
   @include apply-blue-mode;
   .custom-icon,
   a:hover,
@@ -104,9 +103,15 @@ html.blue-mode {
     color: custom-theme.get-secondary(30) !important;
     transition: 0.5s;
   }
+  @include mat.progress-bar-overrides(
+    (
+      active-indicator-color: custom-theme.get-secondary(30),
+      track-color: custom-theme.get-secondary(95),
+    )
+  );
 }
 
-html.monochrome-mode {
+.container.monochrome {
   @include apply-monochrome-mode;
   .custom-icon,
   a:hover,
@@ -114,4 +119,10 @@ html.monochrome-mode {
     color: custom-theme.get-neutral(30) !important;
     transition: 0.5s;
   }
+  @include mat.progress-bar-overrides(
+    (
+      active-indicator-color: custom-theme.get-neutral(30),
+      track-color: custom-theme.get-neutral(95),
+    )
+  );
 }
