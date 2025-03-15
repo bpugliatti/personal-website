@@ -9,13 +9,14 @@
   max-width: 1200px;
   margin: 50px auto;
   background: custom-theme.get-primary(98)
-    url("../../../../public/illus/watercolor-angle-top.png") no-repeat;
+    url("../../../../public/illus/watercolor-angle-top-monoc.png") no-repeat;
   background-position: -150px -250px;
   background-size: 1200px;
   box-shadow: 0 4px 25px rgba(0, 0, 0, 0.2);
 
   .category-title {
-    background: url("../../../../public/illus/watercolor-line.png") no-repeat;
+    background: url("../../../../public/illus/watercolor-line-monoc.png")
+      no-repeat;
     background-size: 70% 50%;
     background-position: 5% 110%;
     padding: 5px 10px 5px 0;

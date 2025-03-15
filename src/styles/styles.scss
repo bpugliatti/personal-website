@@ -1,19 +1,7 @@
-// Custom Theming for Angular Material
-// For more information: https://material.angular.io/guide/theming
 @use "@angular/material" as mat;
 @use "_theme-colors" as custom-theme;
 
-:root {
-  @include mat.toolbar-overrides(
-    (
-      container-background-color: custom-theme.get-primary(60),
-      container-text-color: custom-theme.get-neutral(95),
-      title-text-weight: 500,
-      standard-height: 3rem,
-    )
-  );
-}
-
+// ✅ Apply the Light Theme by Default
 html {
   @include mat.theme(
     (
@@ -34,26 +22,64 @@ html {
   );
 }
 
-html,
+@mixin apply-blue-mode {
+  color-scheme: light;
+  @include mat.theme(
+    (
+      color: (
+        primary: custom-theme.$secondary-palette,
+        tertiary: custom-theme.$tertiary-palette,
+      ),
+      typography: (
+        plain-family: Rubik,
+        brand-family: Open Sans,
+        bold-weight: 900,
+        medium-weight: 500,
+        regular-weight: 300,
+      ),
+      density: 0,
+    )
+  );
+}
+
+@mixin apply-monochrome-mode {
+  color-scheme: light;
+  @include mat.theme(
+    (
+      color: (
+        primary: custom-theme.$neutral-variant-palette,
+        tertiary: custom-theme.$neutral-variant-palette,
+      ),
+      typography: (
+        plain-family: Rubik,
+        brand-family: Open Sans,
+        bold-weight: 900,
+        medium-weight: 500,
+        regular-weight: 300,
+      ),
+      density: 0,
+    )
+  );
+}
+
 body {
   height: 100%;
   margin: 0;
   font-family: Rubik, Roboto, sans-serif;
   color: custom-theme.get-neutral(30);
   background: custom-theme.get-neutral(98);
+  .custom-icon,
+  a:hover,
+  mat-icon {
+    color: custom-theme.get-primary(40) !important;
+    transition: 0.5s;
+  }
 }
 
 h1,
 h2 {
   font-family: Lora, Rubik, Roboto, sans-serif;
   margin: 0px;
-}
-
-.custom-icon,
-a:hover,
-mat-icon {
-  color: custom-theme.get-primary(40) !important;
-  transition: 0.5s;
 }
 
 mat-list span[matListItemTitle] {
@@ -69,16 +95,23 @@ mat-list-item {
   padding-left: 0;
 }
 
-.highlight {
-  font-weight: 600;
+// ✅ Apply the Dark Mode Theme When `.dark-mode` Class is Added
+html.blue-mode {
+  @include apply-blue-mode;
+  .custom-icon,
+  a:hover,
+  mat-icon {
+    color: custom-theme.get-secondary(30) !important;
+    transition: 0.5s;
+  }
 }
 
-.avoid-page-break {
-  break-inside: avoid;
-  page-break-inside: avoid; /* For older browsers */
-}
-
-.page-break {
-  page-break-before: always;
-  break-before: always;
+html.monochrome-mode {
+  @include apply-monochrome-mode;
+  .custom-icon,
+  a:hover,
+  mat-icon {
+    color: custom-theme.get-neutral(30) !important;
+    transition: 0.5s;
+  }
 }

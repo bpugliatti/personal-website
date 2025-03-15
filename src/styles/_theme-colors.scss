@@ -25,21 +25,21 @@ $_palettes: (
     100: #ffffff,
   ),
   secondary: (
-    0: #000000,
-    10: #001f2a,
-    20: #003546,
-    25: #004155,
-    30: #044d63,
-    35: #1a5970,
-    40: #2a657c,
-    50: #467e96,
-    60: #6098b1,
-    70: #7bb3cc,
-    80: #97cee9,
-    90: #bde9ff,
-    95: #e0f4ff,
-    98: #f4faff,
-    99: #fafcff,
+    0: #001122,
+    10: #00203a,
+    20: #003255,
+    25: #00406a,
+    30: #0a4d7f,
+    35: #1b5d94,
+    40: #2d6ea9,
+    50: #4a86c1,
+    60: #69a0da,
+    70: #89bbed,
+    80: #a9d4fa,
+    90: #d1e9ff,
+    95: #e8f4ff,
+    98: #f2faff,
+    99: #f8fcff,
     100: #ffffff,
   ),
   tertiary: (
@@ -134,7 +134,12 @@ $_rest: (
 );
 
 $primary-palette: map.merge(map.get($_palettes, primary), $_rest);
+$secondary-palette: map.merge(map.get($_palettes, secondary), $_rest);
 $tertiary-palette: map.merge(map.get($_palettes, tertiary), $_rest);
+$neutral-variant-palette: map.merge(
+  map.get($_palettes, neutral-variant),
+  $_rest
+);
 
 @function get-primary($key) {
   $primary: map.get($_palettes, primary);
@@ -143,6 +148,16 @@ $tertiary-palette: map.merge(map.get($_palettes, tertiary), $_rest);
     @return map.get($primary, $key);
   } @else {
     @error "Key '#{$key}' not found in primary palette.";
+  }
+}
+
+@function get-secondary($key) {
+  $secondary: map.get($_palettes, secondary);
+
+  @if map.has-key($secondary, $key) {
+    @return map.get($secondary, $key);
+  } @else {
+    @error "Key '#{$key}' not found in secondary palette.";
   }
 }
 
