@@ -3,9 +3,11 @@
 <head>
   <script type="text/javascript">
     (function() {
-      var redirect = window.location.pathname + window.location.search + window.location.hash;
-      if (!redirect.startsWith("/personal-website/index.html")) {
-        window.location.replace("/personal-website/index.html" + redirect);
+      var currentUrl = window.location.pathname + window.location.search + window.location.hash;
+      var basePath = "/personal-website";
+      if (!currentUrl.startsWith(basePath + "/index.html")) {
+        var newUrl = basePath + "/index.html" + currentUrl.replace(basePath, "");
+        window.location.replace(newUrl);
       }
     })();
   </script>
