@@ -1,6 +1,7 @@
 import { Component, computed, inject, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CV_INFO } from '../../core/constants/cv-info.constant';
+import { ThemeDirective } from '../../core/directives/theme.directive';
 import { LanguageService } from '../../core/services/language.service';
 import { ContactItemComponent } from '../contact-item/contact-item.component';
 import { ExperienceComponent } from '../experience/experience.component';
@@ -19,6 +20,7 @@ import { SkillComponent } from '../skill/skill.component';
     SkillComponent,
     LangugeProficiencyComponent,
     ExperienceComponent,
+    ThemeDirective,
   ],
   templateUrl: './resume-container.component.html',
   styleUrls: ['./resume-container.component.scss'],

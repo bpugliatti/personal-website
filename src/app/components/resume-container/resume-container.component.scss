@@ -13,6 +13,42 @@
   background-position: -150px -250px;
   background-size: 1200px;
   box-shadow: 0 4px 25px rgba(0, 0, 0, 0.2);
+  &.blue {
+    background: custom-theme.get-secondary(99)
+      url("../../../../public/illus/watercolor-angle-top-blue.png") no-repeat;
+    background-position: -150px -250px;
+    background-size: 1200px;
+    .category-title {
+      background: url("../../../../public/illus/watercolor-line-blue.png")
+        no-repeat;
+      background-size: 70% 50%;
+      background-position: 5% 110%;
+    }
+  }
+  &.green {
+    background: custom-theme.get-green(99)
+      url("../../../../public/illus/watercolor-angle-top-green.png") no-repeat;
+    background-position: -150px -250px;
+    background-size: 1200px;
+    .category-title {
+      background: url("../../../../public/illus/watercolor-line-green.png")
+        no-repeat;
+      background-size: 70% 50%;
+      background-position: 5% 110%;
+    }
+  }
+  &.monochrome {
+    background: custom-theme.get-neutral(100)
+      url("../../../../public/illus/watercolor-angle-top-monoc.png") no-repeat;
+    background-position: -150px -250px;
+    background-size: 1200px;
+    .category-title {
+      background: url("../../../../public/illus/watercolor-line-monoc.png")
+        no-repeat;
+      background-size: 70% 50%;
+      background-position: 5% 110%;
+    }
+  }
 
   .category-title {
     background: url("../../../../public/illus/watercolor-line.png") no-repeat;
