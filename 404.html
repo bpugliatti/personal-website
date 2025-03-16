@@ -6,7 +6,7 @@
       var currentUrl = window.location.pathname + window.location.search + window.location.hash;
       var basePath = "/personal-website";
       if (!currentUrl.startsWith(basePath + "/index.html")) {
-        var newUrl = basePath + "/index.html" + currentUrl.replace(basePath, "");
+        var newUrl = basePath + currentUrl.replace(basePath, "");
         window.location.replace(newUrl);
       }
     })();
