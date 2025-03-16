@@ -39,11 +39,10 @@ jobs:
           <head>
             <script type="text/javascript">
               (function() {
-                var currentUrl = window.location.pathname + window.location.search + window.location.hash;
                 var basePath = "/personal-website";
 
                 if (!currentUrl.startsWith(basePath)) {
-                  history.replaceState(null, "", basePath + currentUrl);
+                  history.replaceState(null, "", basePath);
                 }
               })();
             </script>
