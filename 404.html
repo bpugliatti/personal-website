@@ -2,9 +2,15 @@
 <html>
 <head>
   <script type="text/javascript">
-    var redirect = window.location.pathname + window.location.search + window.location.hash;
-    window.location.replace("/personal-website/index.html" + redirect);
+    (function() {
+      var redirect = window.location.pathname + window.location.search + window.location.hash;
+      if (!redirect.startsWith("/personal-website/index.html")) {
+        window.location.replace("/personal-website/index.html" + redirect);
+      }
+    })();
   </script>
 </head>
-<body></body>
+<body>
+  <p>Redirecting...</p>
+</body>
 </html>
