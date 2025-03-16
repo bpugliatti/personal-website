@@ -122,6 +122,10 @@ mat-list-item {
   padding-left: 0;
 }
 
+.capitalize {
+  text-transform: capitalize;
+}
+
 .container.blue {
   @include apply-blue-mode;
   .custom-icon,

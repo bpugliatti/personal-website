@@ -19,24 +19,25 @@
       <mat-icon>brush</mat-icon>
     </button>
     <mat-menu #styleMenu="matMenu">
-      <button mat-menu-item (click)="switchTheme(themes.PINK)">Pink</button>
-      <button mat-menu-item (click)="switchTheme(themes.BLUE)">Blue</button>
-      <button mat-menu-item (click)="switchTheme(themes.GREEN)">Green</button>
-      <button mat-menu-item (click)="switchTheme(themes.MONOCHROME)">
-        Monochrome
-      </button>
+      @for (theme of themes; track theme) {
+        <button mat-menu-item (click)="switchTheme(theme)" class="capitalize">
+          {{ theme }}
+        </button>
+      }
     </mat-menu>
     <button mat-icon-button [matMenuTriggerFor]="langMenu" class="toolbar-icon">
       <mat-icon>g_translate</mat-icon>
     </button>
     <mat-menu #langMenu="matMenu">
-      <button mat-menu-item (click)="switchLanguage('en')">EN | English</button>
-      <button mat-menu-item (click)="switchLanguage('fr')">
-        FR | Français
-      </button>
-      <button mat-menu-item (click)="switchLanguage('it')">
-        IT | Italiano
-      </button>
+      @for (language of languages; track language) {
+        <button
+          mat-menu-item
+          (click)="switchLanguage(language)"
+          class="capitalize"
+        >
+          {{ language }}
+        </button>
+      }
     </mat-menu>
   </span>
 </mat-toolbar>

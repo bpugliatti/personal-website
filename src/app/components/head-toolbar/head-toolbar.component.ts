@@ -10,6 +10,12 @@ import { LanguageService } from '../../core/services/language.service';
 import { PdfService } from '../../core/services/pdf.service';
 import { ThemesService } from '../../core/services/themes.service';
 
+enum Languages {
+  ENG = 'en',
+  FR = 'fr',
+  IT = 'it',
+}
+
 @Component({
   selector: 'app-head-toolbar',
   imports: [
@@ -28,15 +34,16 @@ export class HeadToolbarComponent {
   #languageService = inject(LanguageService);
   #changeDetectorRef = inject(ChangeDetectorRef);
 
-  currentTheme = this.#themesService.getTheme();
-  readonly themes = Themes;
+  readonly currentTheme = this.#themesService.getTheme();
+  readonly themes = Object.values(Themes);
+  readonly languages = Object.values(Languages);
 
   get cvName(): string {
     const currentLang = this.#languageService.currentLang();
     return `${CV_INFO[currentLang]?.header.lastName} ${CV_INFO[currentLang]?.header.firstName}`;
   }
 
-  switchLanguage(lang: 'en' | 'fr' | 'it'): void {
+  switchLanguage(lang: Languages): void {
     this.#languageService.changeLanguage(lang);
   }
 
