@@ -94,6 +94,13 @@ body {
     color: custom-theme.get-primary(40) !important;
     transition: 0.5s;
   }
+  .mat-toolbar {
+    background-color: custom-theme.get-primary(60);
+    mat-icon {
+      color: custom-theme.get-primary(20) !important;
+      transition: 0.5s;
+    }
+  }
 }
 
 h1,
@@ -130,6 +137,13 @@ mat-list-item {
     )
   );
 }
+.mat-toolbar.blue {
+  background-color: custom-theme.get-secondary(60);
+  mat-icon {
+    color: custom-theme.get-secondary(20) !important;
+    transition: 0.5s;
+  }
+}
 
 .container.green {
   @include apply-green-mode;
@@ -146,6 +160,13 @@ mat-list-item {
     )
   );
 }
+.mat-toolbar.green {
+  background-color: custom-theme.get-green(60);
+  mat-icon {
+    color: custom-theme.get-green(20) !important;
+    transition: 0.5s;
+  }
+}
 
 .container.monochrome {
   @include apply-monochrome-mode;
@@ -161,4 +182,12 @@ mat-list-item {
       track-color: custom-theme.get-neutral(95),
     )
   );
+}
+
+.mat-toolbar.monochrome {
+  background-color: custom-theme.get-neutral(60);
+  mat-icon {
+    color: custom-theme.get-neutral(20) !important;
+    transition: 0.5s;
+  }
 }

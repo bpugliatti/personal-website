@@ -1,8 +1,8 @@
 import { Component, computed, inject, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CV_INFO } from '../../core/constants/cv-info.constant';
+import { ThemeDirective } from '../../core/directives/theme.directive';
 import { LanguageService } from '../../core/services/language.service';
-import { ThemesService } from '../../core/services/themes.service';
 import { ContactItemComponent } from '../contact-item/contact-item.component';
 import { ExperienceComponent } from '../experience/experience.component';
 import { HeadToolbarComponent } from '../head-toolbar/head-toolbar.component';
@@ -20,6 +20,7 @@ import { SkillComponent } from '../skill/skill.component';
     SkillComponent,
     LangugeProficiencyComponent,
     ExperienceComponent,
+    ThemeDirective,
   ],
   templateUrl: './resume-container.component.html',
   styleUrls: ['./resume-container.component.scss'],
@@ -27,8 +28,6 @@ import { SkillComponent } from '../skill/skill.component';
 export class ResumeContainerComponent implements OnInit {
   #languageService = inject(LanguageService);
   #route = inject(ActivatedRoute);
-  #themesService: ThemesService = inject(ThemesService);
-  currentTheme = this.#themesService.getTheme();
 
   resume = computed(() => {
     const currentLang = this.#languageService.currentLang();
@@ -42,9 +41,5 @@ export class ResumeContainerComponent implements OnInit {
         this.#languageService.changeLanguage(lang);
       }
     });
-  }
-
-  getThemeClass(): string {
-    return this.currentTheme; // Returns 'pink', 'blue', or 'monochrome'
   }
 }

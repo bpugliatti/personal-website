@@ -1,4 +1,4 @@
-<mat-toolbar>
+<mat-toolbar appTheme>
   <span>{{ cvName }}</span>
   <span class="toolbar-spacer">
     <button
@@ -11,13 +11,25 @@
     <button mat-icon-button class="toolbar-icon" (click)="printPdf()">
       <mat-icon>print</mat-icon>
     </button>
-    <!-- TODO  <button mat-icon-button class="toolbar-icon">
+    <button
+      mat-icon-button
+      class="toolbar-icon"
+      [matMenuTriggerFor]="styleMenu"
+    >
       <mat-icon>brush</mat-icon>
-    </button> -->
-    <button mat-icon-button [matMenuTriggerFor]="menu" class="toolbar-icon">
+    </button>
+    <mat-menu #styleMenu="matMenu">
+      <button mat-menu-item (click)="switchTheme(themes.PINK)">Pink</button>
+      <button mat-menu-item (click)="switchTheme(themes.BLUE)">Blue</button>
+      <button mat-menu-item (click)="switchTheme(themes.GREEN)">Green</button>
+      <button mat-menu-item (click)="switchTheme(themes.MONOCHROME)">
+        Monochrome
+      </button>
+    </mat-menu>
+    <button mat-icon-button [matMenuTriggerFor]="langMenu" class="toolbar-icon">
       <mat-icon>g_translate</mat-icon>
     </button>
-    <mat-menu #menu="matMenu">
+    <mat-menu #langMenu="matMenu">
       <button mat-menu-item (click)="switchLanguage('en')">EN | English</button>
       <button mat-menu-item (click)="switchLanguage('fr')">
         FR | Français
