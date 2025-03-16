@@ -5,10 +5,10 @@
     (function() {
       var currentUrl = window.location.pathname + window.location.search + window.location.hash;
       var basePath = "/personal-website";
-      if (!currentUrl.startsWith(basePath + "/index.html")) {
-        var newUrl = basePath + currentUrl.replace(basePath, "");
-        window.location.replace(newUrl);
-      }
+       if (!currentUrl.startsWith(basePath)) {
+        var newUrl = basePath + currentUrl;
+         window.location.replace(newUrl);
+    }
     })();
   </script>
 </head>
