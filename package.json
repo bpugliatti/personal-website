@@ -24,6 +24,7 @@
     "@angular/platform-browser": "^19.2.1",
     "@angular/platform-browser-dynamic": "^19.2.1",
     "@angular/router": "^19.2.1",
+    "@babel/runtime": "^7.27.0",
     "canvg": "^4.0.3",
     "esbuild": "^0.25.1",
     "html2canvas": "^1.4.1",
