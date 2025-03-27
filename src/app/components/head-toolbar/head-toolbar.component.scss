@@ -15,3 +15,9 @@ span {
   margin: 0px;
   letter-spacing: 1.22px;
 }
+
+@media screen and (max-width: 400px) {
+  .name {
+    display: none;
+  }
+ }
