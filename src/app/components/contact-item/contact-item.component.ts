@@ -1,10 +1,10 @@
+import { ClipboardModule } from '@angular/cdk/clipboard';
 import { Component, inject, Input } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import { Contact } from '../../core/models/contact.model';
-import { ClipboardModule } from '@angular/cdk/clipboard';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { Contact } from '../../core/models/contact.model';
 
 @Component({
   selector: 'app-contact-item',
@@ -19,7 +19,7 @@ export class ContactItemComponent {
 
   showCopiedMessage() {
     this.snackBar.open('Copied to clipboard!', 'Close', {
-      duration: 3000, // Message disappears after 3 seconds
+      duration: 3000,
       verticalPosition: 'top',
       horizontalPosition: 'center',
     });
