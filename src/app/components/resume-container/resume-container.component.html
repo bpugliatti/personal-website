@@ -47,8 +47,8 @@
       <section class="languages-section">
         <h2 class="category-title languages">Languages</h2>
         @for (language of resume().languages; track language.language) {
-          <app-languge-proficiency [language]="language">
-          </app-languge-proficiency>
+          <app-language-proficiency [language]="language">
+          </app-language-proficiency>
         } @empty {
           There are no items.
         }

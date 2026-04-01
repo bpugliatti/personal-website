@@ -85,13 +85,13 @@
   }
 
   .languages-section {
-    app-languge-proficiency {
+    app-language-proficiency {
       min-width: 120px;
     }
 
     @media (max-width: 750px) {
       height: 80px;
-      app-languge-proficiency {
+      app-language-proficiency {
         width: 30%;
       }
     }

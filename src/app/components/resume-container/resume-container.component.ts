@@ -8,7 +8,7 @@ import { ContactItemComponent } from '../contact-item/contact-item.component';
 import { ExperienceComponent } from '../experience/experience.component';
 import { HeadToolbarComponent } from '../head-toolbar/head-toolbar.component';
 import { HeaderComponent } from '../header/header.component';
-import { LangugeProficiencyComponent } from '../languge-proficiency/languge-proficiency.component';
+import { LanguageProficiencyComponent } from '../language-proficiency/language-proficiency.component';
 import { SkillComponent } from '../skill/skill.component';
 
 @Component({
@@ -19,7 +19,7 @@ import { SkillComponent } from '../skill/skill.component';
     HeadToolbarComponent,
     ContactItemComponent,
     SkillComponent,
-    LangugeProficiencyComponent,
+    LanguageProficiencyComponent,
     ExperienceComponent,
     ThemeDirective,
   ],
