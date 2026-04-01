@@ -22,64 +22,50 @@ html {
   );
 }
 
-@mixin apply-blue-mode {
+$_typography: (
+  plain-family: Rubik,
+  brand-family: Open Sans,
+  bold-weight: 900,
+  medium-weight: 500,
+  regular-weight: 300,
+);
+
+@mixin apply-theme-mode($primary-palette, $tertiary-palette: custom-theme.$tertiary-palette) {
   color-scheme: light;
   @include mat.theme(
     (
       color: (
-        primary: custom-theme.$secondary-palette,
-        tertiary: custom-theme.$tertiary-palette,
+        primary: $primary-palette,
+        tertiary: $tertiary-palette,
       ),
-      typography: (
-        plain-family: Rubik,
-        brand-family: Open Sans,
-        bold-weight: 900,
-        medium-weight: 500,
-        regular-weight: 300,
-      ),
+      typography: $_typography,
       density: 0,
     )
   );
 }
 
-@mixin apply-green-mode {
-  color-scheme: light;
-  @include mat.theme(
+@mixin theme-container($primary-palette, $accent-30, $track-95, $tertiary-palette: custom-theme.$tertiary-palette) {
+  @include apply-theme-mode($primary-palette, $tertiary-palette);
+  .custom-icon,
+  a:hover,
+  mat-icon {
+    color: $accent-30 !important;
+    transition: 0.5s;
+  }
+  @include mat.progress-bar-overrides(
     (
-      color: (
-        primary: custom-theme.$green-palette,
-        tertiary: custom-theme.$tertiary-palette,
-      ),
-      typography: (
-        plain-family: Rubik,
-        brand-family: Open Sans,
-        bold-weight: 900,
-        medium-weight: 500,
-        regular-weight: 300,
-      ),
-      density: 0,
+      active-indicator-color: $accent-30,
+      track-color: $track-95,
     )
   );
 }
 
-@mixin apply-monochrome-mode {
-  color-scheme: light;
-  @include mat.theme(
-    (
-      color: (
-        primary: custom-theme.$neutral-variant-palette,
-        tertiary: custom-theme.$neutral-variant-palette,
-      ),
-      typography: (
-        plain-family: Rubik,
-        brand-family: Open Sans,
-        bold-weight: 900,
-        medium-weight: 500,
-        regular-weight: 300,
-      ),
-      density: 0,
-    )
-  );
+@mixin theme-toolbar($bg-color, $icon-color) {
+  background-color: $bg-color;
+  mat-icon {
+    color: $icon-color !important;
+    transition: 0.5s;
+  }
 }
 
 body {
@@ -128,71 +114,35 @@ mat-list-item {
 }
 
 .container.blue {
-  @include apply-blue-mode;
-  .custom-icon,
-  a:hover,
-  mat-icon {
-    color: custom-theme.get-secondary(30) !important;
-    transition: 0.5s;
-  }
-  @include mat.progress-bar-overrides(
-    (
-      active-indicator-color: custom-theme.get-secondary(30),
-      track-color: custom-theme.get-secondary(95),
-    )
+  @include theme-container(
+    custom-theme.$secondary-palette,
+    custom-theme.get-secondary(30),
+    custom-theme.get-secondary(95)
   );
 }
 .mat-toolbar.blue {
-  background-color: custom-theme.get-secondary(60);
-  mat-icon {
-    color: custom-theme.get-secondary(20) !important;
-    transition: 0.5s;
-  }
+  @include theme-toolbar(custom-theme.get-secondary(60), custom-theme.get-secondary(20));
 }
 
 .container.green {
-  @include apply-green-mode;
-  .custom-icon,
-  a:hover,
-  mat-icon {
-    color: custom-theme.get-green(30) !important;
-    transition: 0.5s;
-  }
-  @include mat.progress-bar-overrides(
-    (
-      active-indicator-color: custom-theme.get-green(30),
-      track-color: custom-theme.get-green(95),
-    )
+  @include theme-container(
+    custom-theme.$green-palette,
+    custom-theme.get-green(30),
+    custom-theme.get-green(95)
   );
 }
 .mat-toolbar.green {
-  background-color: custom-theme.get-green(60);
-  mat-icon {
-    color: custom-theme.get-green(20) !important;
-    transition: 0.5s;
-  }
+  @include theme-toolbar(custom-theme.get-green(60), custom-theme.get-green(20));
 }
 
 .container.monochrome {
-  @include apply-monochrome-mode;
-  .custom-icon,
-  a:hover,
-  mat-icon {
-    color: custom-theme.get-neutral(30) !important;
-    transition: 0.5s;
-  }
-  @include mat.progress-bar-overrides(
-    (
-      active-indicator-color: custom-theme.get-neutral(30),
-      track-color: custom-theme.get-neutral(95),
-    )
+  @include theme-container(
+    custom-theme.$neutral-variant-palette,
+    custom-theme.get-neutral(30),
+    custom-theme.get-neutral(95),
+    custom-theme.$neutral-variant-palette
   );
 }
-
 .mat-toolbar.monochrome {
-  background-color: custom-theme.get-neutral(60);
-  mat-icon {
-    color: custom-theme.get-neutral(20) !important;
-    transition: 0.5s;
-  }
+  @include theme-toolbar(custom-theme.get-neutral(60), custom-theme.get-neutral(20));
 }
