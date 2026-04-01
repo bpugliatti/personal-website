@@ -29,7 +29,7 @@ enum Languages {
   styleUrls: ['./head-toolbar.component.scss'],
 })
 export class HeadToolbarComponent {
-  #themesService: ThemesService = inject(ThemesService);
+  #themesService = inject(ThemesService);
   #pdfService = inject(PdfService);
   #languageService = inject(LanguageService);
 
@@ -49,15 +49,7 @@ export class HeadToolbarComponent {
     this.#themesService.setTheme(theme);
   }
 
-  savePdf() {
-    const currentLang = this.#languageService.currentLang();
-    this.#pdfService.savePDF(
-      'cv-container',
-      `${this.cvName} Resume - ${currentLang.toUpperCase()}`,
-    );
-  }
-
-  printPdf() {
-    this.#pdfService.printPDF('cv-container');
+  printPdf(): void {
+    this.#pdfService.print();
   }
 }
