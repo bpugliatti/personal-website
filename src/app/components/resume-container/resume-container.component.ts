@@ -1,4 +1,5 @@
-import { Component, computed, inject, OnInit } from '@angular/core';
+import { Component, computed, DestroyRef, inject, OnInit } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { ActivatedRoute } from '@angular/router';
 import { CV_INFO } from '../../core/constants/cv-info.constant';
 import { ThemeDirective } from '../../core/directives/theme.directive';
@@ -28,6 +29,7 @@ import { SkillComponent } from '../skill/skill.component';
 export class ResumeContainerComponent implements OnInit {
   #languageService = inject(LanguageService);
   #route = inject(ActivatedRoute);
+  #destroyRef = inject(DestroyRef);
 
   resume = computed(() => {
     const currentLang = this.#languageService.currentLang();
@@ -35,11 +37,13 @@ export class ResumeContainerComponent implements OnInit {
   });
 
   ngOnInit() {
-    this.#route.params.subscribe((params) => {
-      const lang = params['lang'] as keyof typeof CV_INFO;
-      if (lang && CV_INFO[lang]) {
-        this.#languageService.changeLanguage(lang);
-      }
-    });
+    this.#route.params
+      .pipe(takeUntilDestroyed(this.#destroyRef))
+      .subscribe((params) => {
+        const lang = params['lang'] as keyof typeof CV_INFO;
+        if (lang && CV_INFO[lang]) {
+          this.#languageService.changeLanguage(lang);
+        }
+      });
   }
 }

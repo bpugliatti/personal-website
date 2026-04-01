@@ -1,4 +1,5 @@
-import { Directive, ElementRef, OnInit, Renderer2 } from '@angular/core';
+import { DestroyRef, Directive, ElementRef, OnInit, Renderer2 } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Themes } from '../enum/themes.enum';
 import { ThemesService } from '../services/themes.service';
 
@@ -12,12 +13,16 @@ export class ThemeDirective implements OnInit {
     private el: ElementRef,
     private renderer: Renderer2,
     private themeService: ThemesService,
+    private destroyRef: DestroyRef,
   ) {}
 
   ngOnInit() {
-    this.themeService.getThemeObservable().subscribe((theme: Themes) => {
-      this.applyTheme(theme);
-    });
+    this.themeService
+      .getThemeObservable()
+      .pipe(takeUntilDestroyed(this.destroyRef))
+      .subscribe((theme: Themes) => {
+        this.applyTheme(theme);
+      });
   }
 
   private applyTheme(theme: Themes) {
