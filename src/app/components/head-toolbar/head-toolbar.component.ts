@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, inject } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
@@ -32,9 +32,7 @@ export class HeadToolbarComponent {
   #themesService: ThemesService = inject(ThemesService);
   #pdfService = inject(PdfService);
   #languageService = inject(LanguageService);
-  #changeDetectorRef = inject(ChangeDetectorRef);
 
-  readonly currentTheme = this.#themesService.getTheme();
   readonly themes = Object.values(Themes);
   readonly languages = Object.values(Languages);
 
@@ -49,7 +47,6 @@ export class HeadToolbarComponent {
 
   switchTheme(theme: Themes): void {
     this.#themesService.setTheme(theme);
-    this.#changeDetectorRef.detectChanges();
   }
 
   savePdf() {

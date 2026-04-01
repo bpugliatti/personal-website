@@ -1,5 +1,4 @@
-import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { Injectable, signal } from '@angular/core';
 import { Themes } from '../enum/themes.enum';
 
 @Injectable({
@@ -7,18 +6,10 @@ import { Themes } from '../enum/themes.enum';
 })
 export class ThemesService {
   private readonly themeKey = 'selectedTheme';
-  private currentTheme = new BehaviorSubject<Themes>(Themes.BLUE);
+  readonly currentTheme = signal<Themes>(Themes.BLUE);
 
   setTheme(theme: Themes): void {
     localStorage.setItem(this.themeKey, theme);
-    this.currentTheme.next(theme);
-  }
-
-  getTheme(): Themes {
-    return this.currentTheme.value;
-  }
-
-  getThemeObservable() {
-    return this.currentTheme.asObservable();
+    this.currentTheme.set(theme);
   }
 }
