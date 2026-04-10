@@ -1,4 +1,10 @@
-import { Directive, effect, ElementRef, inject, Renderer2 } from '@angular/core';
+import {
+  Directive,
+  effect,
+  ElementRef,
+  inject,
+  Renderer2,
+} from '@angular/core';
 import { Themes } from '../enum/themes.enum';
 import { ThemesService } from '../services/themes.service';
 
