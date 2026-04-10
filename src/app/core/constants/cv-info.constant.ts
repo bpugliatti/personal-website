@@ -44,7 +44,7 @@ export const CV_INFO: CVInfo = {
     `,
       },
       {
-        experienceName: 'INFORMATIC ENJINEER',
+        experienceName: 'IT ENGINEER',
         experienceDateStart: 'Sept 2019',
         experienceDateEnd: 'Jun 2021',
         companyName: 'RS2I',
@@ -92,12 +92,12 @@ export const CV_INFO: CVInfo = {
         companyName: 'Accademia Anja',
         location: 'Rome, Italy',
         extraDescription:
-          'Certications obtained: PHP Developer Fundamentals on MySQL®',
+          'Certifications obtained: PHP Developer Fundamentals on MySQL®',
       },
       {
         experienceName: 'DEGREE IN CULTURAL HERITAGE SCIENCES',
-        experienceDateStart: 'Jan 2014',
-        experienceDateEnd: 'Sept 2010',
+        experienceDateStart: 'Sept 2010',
+        experienceDateEnd: 'Jan 2014',
         companyName: 'University of Milan',
         location: 'Milan, Italy',
         extraDescription: 'Final score: 105/110',
@@ -120,7 +120,7 @@ export const CV_INFO: CVInfo = {
       },
       {
         contactType: 'phone',
-        contactValue: '+330636411538',
+        contactValue: '+33636411538',
         contactIcon: 'phone_iphone',
         contactTooltip:
           'Click the number to call with your default calling app.',
@@ -457,7 +457,7 @@ export const CV_INFO: CVInfo = {
       },
       {
         contactType: 'phone',
-        contactValue: '+330636411538',
+        contactValue: '+33636411538',
         contactIcon: 'phone_iphone',
         contactTooltip:
           'Cliquez sur le numéro pour appeler avec votre application de téléphonie par défaut.',
@@ -779,7 +779,7 @@ export const CV_INFO: CVInfo = {
       },
       {
         contactType: 'phone',
-        contactValue: '+330636411538',
+        contactValue: '+33636411538',
         contactIcon: 'phone_iphone',
         contactTooltip: 'Clicca sul numero per chiamare con l’app predefinita.',
         isCopyAllowed: true,
