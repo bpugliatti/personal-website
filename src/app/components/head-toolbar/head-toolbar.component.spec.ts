@@ -49,7 +49,7 @@ describe('HeadToolbarComponent', () => {
   });
 
   it('should expose all available languages', () => {
-    expect(component.languages).toEqual(['en', 'fr', 'it']);
+    expect(component.languages as string[]).toEqual(['en', 'fr', 'it']);
   });
 
   it('should return the full name from cvName getter for the current language', () => {
