@@ -12,6 +12,21 @@ export const CV_INFO: CVInfo = {
     },
     jobExperiences: [
       {
+        experienceName: 'SOFTWARE ENGINEER',
+        experienceDateStart: 'Sep 2025',
+        experienceDateEnd: 'Mar 2026',
+        companyName: 'Dougs Compta',
+        location: 'Lyon, Auvergne-Rhône-Alpes, France · Remote',
+        extraDescription: `
+<ul>
+  <li>Championed <span class="highlight">web accessibility</span> at company level, raising awareness of legal obligations and driving the organisation to <span class="highlight">appoint dedicated owners</span> and kick off a structured remediation effort.</li>
+  <li>Contributed to the development of <span class="highlight">online cash register and e-commerce features</span>, building the tools required for their related tax declaration workflows.</li>
+  <li>Redesigned the <span class="highlight">charts on the performance page</span>, overhauling their color scheme to improve <span class="highlight">contrast and readability</span>.</li>
+  <li>Collaborated with the front-end team to keep the application up to date, and to <span class="highlight">improve both app and test performance</span>.</li>
+</ul>
+        `,
+      },
+      {
         experienceName: 'FRONT-END DEVELOPER',
         experienceDateStart: 'Jun 2021',
         experienceDateEnd: 'Present',
@@ -330,6 +345,21 @@ export const CV_INFO: CVInfo = {
     },
     jobExperiences: [
       {
+        experienceName: 'INGÉNIEURE LOGICIEL',
+        experienceDateStart: 'Sept 2025',
+        experienceDateEnd: 'Mars 2026',
+        companyName: 'Dougs Compta',
+        location: 'Lyon, Auvergne-Rhône-Alpes, France · Remote',
+        extraDescription: `
+<ul>
+  <li>Portée d'entreprise : sensibilisation à <span class="highlight">l'accessibilité web</span> et aux obligations légales associées, conduisant l'organisation à <span class="highlight">nommer des responsables dédiés</span> et à lancer un travail structuré sur le sujet.</li>
+  <li>Contribution au développement des fonctionnalités de <span class="highlight">caisse en ligne et de vente en ligne</span>, en réalisant les outils nécessaires aux déclarations fiscales associées.</li>
+  <li>Refonte des <span class="highlight">graphiques de la page de performance</span>, avec une nouvelle palette de couleurs pour améliorer le <span class="highlight">contraste et la lisibilité</span>.</li>
+  <li>Collaboration avec l'équipe front-end pour maintenir l'application à jour et <span class="highlight">améliorer les performances de l'application et des tests</span>.</li>
+</ul>
+        `,
+      },
+      {
         experienceName: 'DÉVELOPPEUSE FRONT-END',
         experienceDateStart: 'Juin 2021',
         experienceDateEnd: 'Présent',
@@ -638,6 +668,21 @@ export const CV_INFO: CVInfo = {
 `,
     },
     jobExperiences: [
+      {
+        experienceName: 'INGEGNERE SOFTWARE',
+        experienceDateStart: 'Settembre 2025',
+        experienceDateEnd: 'Marzo 2026',
+        companyName: 'Dougs Compta',
+        location: 'Lione, Auvergne-Rhône-Alpes, Francia · Remote',
+        extraDescription: `
+<ul>
+  <li>Ho promosso a livello aziendale la cultura dell'<span class="highlight">accessibilità web</span>, sensibilizzando sull'esistenza di obblighi legali e spingendo l'organizzazione a <span class="highlight">nominare responsabili dedicati</span> e avviare un lavoro strutturato sul tema.</li>
+  <li>Ho contribuito allo sviluppo delle funzionalità di <span class="highlight">cassa online e vendita online</span>, realizzando gli strumenti necessari per le relative dichiarazioni fiscali.</li>
+  <li>Ho ridisegnato i <span class="highlight">grafici della pagina delle performance</span>, rinnovando la palette di colori per migliorare il <span class="highlight">contrasto e la leggibilità</span>.</li>
+  <li>Ho collaborato con il team front-end per mantenere l'applicazione aggiornata e <span class="highlight">migliorare le performance dell'app e dei test</span>.</li>
+</ul>
+        `,
+      },
       {
         experienceName: 'SVILUPPATRICE FRONT-END',
         experienceDateStart: 'Giugno 2021',
