@@ -59,7 +59,9 @@ describe('HeadToolbarComponent', () => {
   });
 
   it('should call languageService.changeLanguage when switchLanguage is called', () => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     component.switchLanguage('fr' as any);
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     expect(languageServiceSpy.changeLanguage).toHaveBeenCalledWith('fr' as any);
   });
 
