@@ -1,6 +1,5 @@
-import { Component, inject, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Experience } from '../../core/models/experience.model';
-import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-experience',
@@ -9,11 +8,4 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 })
 export class ExperienceComponent {
   @Input() experience!: Experience;
-  private sanitizer = inject(DomSanitizer);
-
-  get sanitizedDescription(): SafeHtml {
-    return this.sanitizer.bypassSecurityTrustHtml(
-      this.experience?.extraDescription || '',
-    );
-  }
 }

@@ -6,12 +6,12 @@ import {
 import { LanguageProficiency } from '../../core/models/language.model';
 
 @Component({
-  selector: 'app-languge-proficiency',
+  selector: 'app-language-proficiency',
   imports: [MatProgressBarModule],
-  templateUrl: './languge-proficiency.component.html',
-  styleUrl: './languge-proficiency.component.scss',
+  templateUrl: './language-proficiency.component.html',
+  styleUrl: './language-proficiency.component.scss',
 })
-export class LangugeProficiencyComponent {
+export class LanguageProficiencyComponent {
   @Input() language!: LanguageProficiency;
   mode: ProgressBarMode = 'determinate';
 }
