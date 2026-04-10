@@ -8,7 +8,7 @@ export const CV_INFO: CVInfo = {
       lastName: 'Pugliatti',
       firstName: 'Barbara',
       jobTitle: 'Front-end Developer',
-      aboutMe: `<p>As a <span class="highlight">Front-End Developer</span> with 5+ years of experience, I love bringing ideas to life through <span class="highlight">intuitive interfaces</span> that make everyday interactions smoother and more enjoyable.</p> <p>Specialized in the <span class="highlight">Angular</span> ecosystem, I'm a curious mind who loves <span class="highlight">exploring new technologies</span>, refining <span class="highlight">best practices</span>, and finding smarter ways to build high-impact digital experiences.</p>`,
+      aboutMe: `<p>As a <span class="highlight">Front-End Developer</span> with 6+ years of experience, I love bringing ideas to life through <span class="highlight">intuitive interfaces</span> that make everyday interactions smoother and more enjoyable.</p> <p>Specialized in the <span class="highlight">Angular</span> ecosystem, I'm a curious mind who loves <span class="highlight">exploring new technologies</span>, refining <span class="highlight">best practices</span>, and finding smarter ways to build high-impact digital experiences. I'm currently deepening my expertise in <span class="highlight">web accessibility</span>.</p>`,
     },
     jobExperiences: [
       {
@@ -29,7 +29,7 @@ export const CV_INFO: CVInfo = {
       {
         experienceName: 'FRONT-END DEVELOPER',
         experienceDateStart: 'Jun 2021',
-        experienceDateEnd: 'Present',
+        experienceDateEnd: 'Jun 2025',
         companyName: 'Tiime',
         location: 'Paris, France',
         extraDescription: `
@@ -44,7 +44,7 @@ export const CV_INFO: CVInfo = {
     `,
       },
       {
-        experienceName: 'INFORMATIC ENJINEER',
+        experienceName: 'IT ENGINEER',
         experienceDateStart: 'Sept 2019',
         experienceDateEnd: 'Jun 2021',
         companyName: 'RS2I',
@@ -92,12 +92,12 @@ export const CV_INFO: CVInfo = {
         companyName: 'Accademia Anja',
         location: 'Rome, Italy',
         extraDescription:
-          'Certications obtained: PHP Developer Fundamentals on MySQL®',
+          'Certifications obtained: PHP Developer Fundamentals on MySQL®',
       },
       {
         experienceName: 'DEGREE IN CULTURAL HERITAGE SCIENCES',
-        experienceDateStart: 'Jan 2014',
-        experienceDateEnd: 'Sept 2010',
+        experienceDateStart: 'Sept 2010',
+        experienceDateEnd: 'Jan 2014',
         companyName: 'University of Milan',
         location: 'Milan, Italy',
         extraDescription: 'Final score: 105/110',
@@ -120,7 +120,7 @@ export const CV_INFO: CVInfo = {
       },
       {
         contactType: 'phone',
-        contactValue: '+330636411538',
+        contactValue: '+33636411538',
         contactIcon: 'phone_iphone',
         contactTooltip:
           'Click the number to call with your default calling app.',
@@ -261,7 +261,7 @@ export const CV_INFO: CVInfo = {
         icon: 'star_half',
         skillList: [
           {
-            skillName: 'Node.js',
+            skillName: 'CPACC Certification',
             isLinkedToCertification: false,
             linkToCertification: '',
           },
@@ -271,12 +271,7 @@ export const CV_INFO: CVInfo = {
             linkToCertification: '',
           },
           {
-            skillName: 'CI/CD Pipelines',
-            isLinkedToCertification: false,
-            linkToCertification: '',
-          },
-          {
-            skillName: 'AWS Cloud',
+            skillName: 'CI/CD',
             isLinkedToCertification: false,
             linkToCertification: '',
           },
@@ -362,7 +357,7 @@ export const CV_INFO: CVInfo = {
       {
         experienceName: 'DÉVELOPPEUSE FRONT-END',
         experienceDateStart: 'Juin 2021',
-        experienceDateEnd: 'Présent',
+        experienceDateEnd: 'Juin 2025',
         companyName: 'Tiime',
         location: 'Paris, France',
         extraDescription: `
@@ -457,7 +452,7 @@ export const CV_INFO: CVInfo = {
       },
       {
         contactType: 'phone',
-        contactValue: '+330636411538',
+        contactValue: '+33636411538',
         contactIcon: 'phone_iphone',
         contactTooltip:
           'Cliquez sur le numéro pour appeler avec votre application de téléphonie par défaut.',
@@ -600,7 +595,7 @@ export const CV_INFO: CVInfo = {
         icon: 'star_half',
         skillList: [
           {
-            skillName: 'Node.js',
+            skillName: 'Certification CPACC',
             isLinkedToCertification: false,
             linkToCertification: '',
           },
@@ -610,12 +605,7 @@ export const CV_INFO: CVInfo = {
             linkToCertification: '',
           },
           {
-            skillName: 'Pipelines CI/CD',
-            isLinkedToCertification: false,
-            linkToCertification: '',
-          },
-          {
-            skillName: 'AWS Cloud',
+            skillName: 'CI/CD',
             isLinkedToCertification: false,
             linkToCertification: '',
           },
@@ -663,8 +653,8 @@ export const CV_INFO: CVInfo = {
       lastName: 'Pugliatti',
       firstName: 'Barbara',
       jobTitle: 'Sviluppatrice Front-end',
-      aboutMe: `<p>In qualità di <span class="highlight">Sviluppatrice Front-End</span> con oltre 5 anni di esperienza, amo trasformare le idee in realtà attraverso <span class="highlight">interfacce intuitive</span> che rendono le interazioni quotidiane più fluide e piacevoli.</p>  
-<p>Specializzata nell'ecosistema <span class="highlight">Angular</span>, sono una persona curiosa che ama <span class="highlight">scoprire nuove tecnologie</span>, perfezionare le <span class="highlight">best practice</span> e trovare soluzioni più intelligenti per creare esperienze digitali ad alto impatto.</p>
+      aboutMe: `<p>In qualità di <span class="highlight">Sviluppatrice Front-End</span> con oltre 6 anni di esperienza, amo trasformare le idee in realtà attraverso <span class="highlight">interfacce intuitive</span> che rendono le interazioni quotidiane più fluide e piacevoli.</p>
+<p>Specializzata nell'ecosistema <span class="highlight">Angular</span>, sono una persona curiosa che ama <span class="highlight">scoprire nuove tecnologie</span>, perfezionare le <span class="highlight">best practice</span> e trovare soluzioni più intelligenti per creare esperienze digitali ad alto impatto. Mi sto attualmente formando in <span class="highlight">accessibilità web</span>.</p>
 `,
     },
     jobExperiences: [
@@ -686,7 +676,7 @@ export const CV_INFO: CVInfo = {
       {
         experienceName: 'SVILUPPATRICE FRONT-END',
         experienceDateStart: 'Giugno 2021',
-        experienceDateEnd: 'Presente',
+        experienceDateEnd: 'Giugno 2025',
         companyName: 'Tiime',
         location: 'Parigi, Francia',
         extraDescription: `
@@ -779,7 +769,7 @@ export const CV_INFO: CVInfo = {
       },
       {
         contactType: 'phone',
-        contactValue: '+330636411538',
+        contactValue: '+33636411538',
         contactIcon: 'phone_iphone',
         contactTooltip: 'Clicca sul numero per chiamare con l’app predefinita.',
         isCopyAllowed: true,
@@ -921,7 +911,7 @@ export const CV_INFO: CVInfo = {
         icon: 'star_half',
         skillList: [
           {
-            skillName: 'Node.js',
+            skillName: 'Certificazione CPACC',
             isLinkedToCertification: false,
             linkToCertification: '',
           },
@@ -931,12 +921,7 @@ export const CV_INFO: CVInfo = {
             linkToCertification: '',
           },
           {
-            skillName: 'Pipeline CI/CD',
-            isLinkedToCertification: false,
-            linkToCertification: '',
-          },
-          {
-            skillName: 'AWS Cloud',
+            skillName: 'CI/CD',
             isLinkedToCertification: false,
             linkToCertification: '',
           },

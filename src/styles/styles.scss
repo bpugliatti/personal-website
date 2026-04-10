@@ -30,7 +30,10 @@ $_typography: (
   regular-weight: 300,
 );
 
-@mixin apply-theme-mode($primary-palette, $tertiary-palette: custom-theme.$tertiary-palette) {
+@mixin apply-theme-mode(
+  $primary-palette,
+  $tertiary-palette: custom-theme.$tertiary-palette
+) {
   color-scheme: light;
   @include mat.theme(
     (
@@ -44,7 +47,12 @@ $_typography: (
   );
 }
 
-@mixin theme-container($primary-palette, $accent-30, $track-95, $tertiary-palette: custom-theme.$tertiary-palette) {
+@mixin theme-container(
+  $primary-palette,
+  $accent-30,
+  $track-95,
+  $tertiary-palette: custom-theme.$tertiary-palette
+) {
   @include apply-theme-mode($primary-palette, $tertiary-palette);
   .custom-icon,
   a:hover,
@@ -121,7 +129,10 @@ mat-list-item {
   );
 }
 .mat-toolbar.blue {
-  @include theme-toolbar(custom-theme.get-secondary(60), custom-theme.get-secondary(20));
+  @include theme-toolbar(
+    custom-theme.get-secondary(60),
+    custom-theme.get-secondary(20)
+  );
 }
 
 .container.green {
@@ -132,7 +143,10 @@ mat-list-item {
   );
 }
 .mat-toolbar.green {
-  @include theme-toolbar(custom-theme.get-green(60), custom-theme.get-green(20));
+  @include theme-toolbar(
+    custom-theme.get-green(60),
+    custom-theme.get-green(20)
+  );
 }
 
 .container.monochrome {
@@ -144,7 +158,10 @@ mat-list-item {
   );
 }
 .mat-toolbar.monochrome {
-  @include theme-toolbar(custom-theme.get-neutral(60), custom-theme.get-neutral(20));
+  @include theme-toolbar(
+    custom-theme.get-neutral(60),
+    custom-theme.get-neutral(20)
+  );
 }
 
 @media print {
@@ -168,5 +185,9 @@ mat-list-item {
 
   .avoid-page-break {
     break-inside: avoid;
+  }
+
+  mat-icon {
+    display: none !important;
   }
 }
