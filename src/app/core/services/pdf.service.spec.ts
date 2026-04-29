@@ -14,7 +14,7 @@ describe('PdfService', () => {
   });
 
   it('should call window.print when print() is invoked', () => {
-    spyOn(window, 'print');
+    jest.spyOn(window, 'print').mockImplementation(() => undefined);
     service.print();
     expect(window.print).toHaveBeenCalledTimes(1);
   });

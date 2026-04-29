@@ -1,6 +1,9 @@
 <mat-toolbar appTheme>
   <span class="name">{{ cvName }}</span>
   <span class="toolbar-spacer">
+    <button mat-icon-button class="toolbar-icon" (click)="downloadPdf()">
+      <mat-icon>download</mat-icon>
+    </button>
     <button mat-icon-button class="toolbar-icon" (click)="printPdf()">
       <mat-icon>print</mat-icon>
     </button>

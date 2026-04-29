@@ -1,32 +1,35 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { signal } from '@angular/core';
+import { signal, WritableSignal } from '@angular/core';
 import { Subject } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 import { ResumeContainerComponent } from './resume-container.component';
 import { LanguageService } from '../../core/services/language.service';
 import { ThemesService } from '../../core/services/themes.service';
 import { Themes } from '../../core/enum/themes.enum';
+import { CV_INFO } from '../../core/constants/cv-info.constant';
 
 describe('ResumeContainerComponent', () => {
   let component: ResumeContainerComponent;
   let fixture: ComponentFixture<ResumeContainerComponent>;
-  let languageServiceSpy: jasmine.SpyObj<LanguageService>;
+  let currentLang: WritableSignal<'en' | 'fr' | 'it'>;
+  let languageServiceSpy: jest.Mocked<Pick<LanguageService, 'changeLanguage'>> &
+    Pick<LanguageService, 'currentLang'>;
   let paramsSubject: Subject<Record<string, string>>;
 
   beforeEach(async () => {
     paramsSubject = new Subject();
+    currentLang = signal<'en' | 'fr' | 'it'>('en');
 
-    languageServiceSpy = jasmine.createSpyObj(
-      'LanguageService',
-      ['changeLanguage'],
-      {
-        currentLang: signal<'en' | 'fr' | 'it'>('en'),
-      },
-    );
+    languageServiceSpy = {
+      changeLanguage: jest.fn((lang: 'en' | 'fr' | 'it') =>
+        currentLang.set(lang),
+      ),
+      currentLang,
+    };
 
     const themesServiceStub = {
       currentTheme: signal<Themes>(Themes.BLUE),
-      setTheme: jasmine.createSpy('setTheme'),
+      setTheme: jest.fn(),
     };
 
     await TestBed.configureTestingModule({
@@ -70,5 +73,15 @@ describe('ResumeContainerComponent', () => {
     expect(resume).toBeDefined();
     expect(resume.header).toBeDefined();
     expect(resume.jobExperiences).toBeDefined();
+  });
+
+  it('should update the computed resume when the route language changes', () => {
+    paramsSubject.next({ lang: 'fr' });
+    fixture.detectChanges();
+
+    expect(component.resume()).toEqual(CV_INFO.fr);
+    expect(fixture.nativeElement.textContent).toContain(
+      CV_INFO.fr.header.jobTitle,
+    );
   });
 });
