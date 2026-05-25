@@ -104,6 +104,10 @@ h2 {
   margin: 0px;
 }
 
+strong {
+  font-weight: 500;
+}
+
 mat-list span[matListItemTitle] {
   color: custom-theme.get-neutral(30);
 }
@@ -167,7 +171,24 @@ mat-list-item {
 @media print {
   @page {
     size: A4 portrait;
-    margin: 0;
+    margin: 10mm 0 12mm 0;
+
+    @bottom-left {
+      content: "";
+    }
+    @bottom-right {
+      content: "";
+    }
+    @bottom-center {
+      content: "Pugliatti Barbara — CV";
+      font-size: 9pt;
+      font-family: Rubik, sans-serif;
+      color: #888;
+    }
+  }
+
+  @page :first {
+    margin-top: 0;
   }
 
   * {
@@ -184,10 +205,34 @@ mat-list-item {
   }
 
   .avoid-page-break {
-    break-inside: avoid;
+    break-inside: auto;
   }
 
   mat-icon {
     display: none !important;
+  }
+
+  strong {
+    font-weight: 600 !important;
+  }
+
+  .experience-description {
+    font-size: 22px !important;
+    line-height: 30px !important;
+  }
+
+  .presentation {
+    font-size: 22px !important;
+    line-height: 30px !important;
+  }
+
+  .category-title {
+    font-size: 20px !important;
+  }
+
+  .experience-container {
+    font-size: 20px !important;
+    line-height: 26px !important;
+    margin-bottom: 12px !important;
   }
 }

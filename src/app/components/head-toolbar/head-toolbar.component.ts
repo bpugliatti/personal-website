@@ -52,4 +52,17 @@ export class HeadToolbarComponent {
   printPdf(): void {
     this.#pdfService.print();
   }
+
+  downloadPdf(): void {
+    const lang = this.#languageService.currentLang();
+    const fileNames: Record<string, string> = {
+      en: 'barbara pugliatti - cv.pdf',
+      fr: 'barbara pugliatti - cv - FR.pdf',
+      it: 'barbara pugliatti - cv - IT.pdf',
+    };
+    const link = document.createElement('a');
+    link.href = `/pdf/${fileNames[lang]}`;
+    link.download = fileNames[lang];
+    link.click();
+  }
 }
