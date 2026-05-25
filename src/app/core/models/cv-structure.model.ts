@@ -4,7 +4,16 @@ import { Header } from './header.model';
 import { LanguageProficiency } from './language.model';
 import { SkillCategory } from './skill-category.model';
 
+export interface CVLabels {
+  experience: string;
+  education: string;
+  contact: string;
+  skills: string;
+  languages: string;
+}
+
 export interface CVData {
+  labels: CVLabels;
   header: Header;
   jobExperiences: Experience[];
   formationExperiences: Experience[];
