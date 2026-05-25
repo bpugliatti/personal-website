@@ -4,10 +4,10 @@ import { LanguageService } from './language.service';
 
 describe('LanguageService', () => {
   let service: LanguageService;
-  let routerMock: { url: string; navigate: jasmine.Spy };
+  let routerMock: { url: string; navigate: jest.Mock };
 
   beforeEach(() => {
-    routerMock = { url: '/en/home', navigate: jasmine.createSpy('navigate') };
+    routerMock = { url: '/en/home', navigate: jest.fn() };
 
     TestBed.configureTestingModule({
       providers: [LanguageService, { provide: Router, useValue: routerMock }],

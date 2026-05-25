@@ -6,7 +6,7 @@ import { Contact } from '../../core/models/contact.model';
 describe('ContactItemComponent', () => {
   let component: ContactItemComponent;
   let fixture: ComponentFixture<ContactItemComponent>;
-  let snackBarSpy: jasmine.SpyObj<MatSnackBar>;
+  let snackBarSpy: jest.Mocked<Pick<MatSnackBar, 'open'>>;
 
   const mockContact: Contact = {
     contactType: 'Email',
@@ -17,7 +17,7 @@ describe('ContactItemComponent', () => {
   };
 
   beforeEach(async () => {
-    snackBarSpy = jasmine.createSpyObj('MatSnackBar', ['open']);
+    snackBarSpy = { open: jest.fn() };
 
     await TestBed.configureTestingModule({
       imports: [ContactItemComponent],
