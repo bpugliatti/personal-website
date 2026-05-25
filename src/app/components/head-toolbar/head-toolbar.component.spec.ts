@@ -9,22 +9,22 @@ import { Themes } from '../../core/enum/themes.enum';
 describe('HeadToolbarComponent', () => {
   let component: HeadToolbarComponent;
   let fixture: ComponentFixture<HeadToolbarComponent>;
-  let languageServiceSpy: jasmine.SpyObj<LanguageService>;
-  let themesServiceSpy: jasmine.SpyObj<ThemesService>;
-  let pdfServiceSpy: jasmine.SpyObj<PdfService>;
+  let languageServiceSpy: jest.Mocked<Pick<LanguageService, 'changeLanguage'>> &
+    Pick<LanguageService, 'currentLang'>;
+  let themesServiceSpy: jest.Mocked<Pick<ThemesService, 'setTheme'>> &
+    Pick<ThemesService, 'currentTheme'>;
+  let pdfServiceSpy: jest.Mocked<Pick<PdfService, 'print'>>;
 
   beforeEach(async () => {
-    languageServiceSpy = jasmine.createSpyObj(
-      'LanguageService',
-      ['changeLanguage'],
-      {
-        currentLang: signal<'en' | 'fr' | 'it'>('en'),
-      },
-    );
-    themesServiceSpy = jasmine.createSpyObj('ThemesService', ['setTheme'], {
+    languageServiceSpy = {
+      changeLanguage: jest.fn(),
+      currentLang: signal<'en' | 'fr' | 'it'>('en'),
+    };
+    themesServiceSpy = {
+      setTheme: jest.fn(),
       currentTheme: signal<Themes>(Themes.BLUE),
-    });
-    pdfServiceSpy = jasmine.createSpyObj('PdfService', ['print']);
+    };
+    pdfServiceSpy = { print: jest.fn() };
 
     await TestBed.configureTestingModule({
       imports: [HeadToolbarComponent],

@@ -215,5 +215,10 @@ header {
     .languages {
       display: block !important;
     }
+
+    .category-title {
+      display: block !important;
+      break-after: auto !important;
+    }
   }
 }

@@ -2,27 +2,43 @@ import { CVInfo } from '../models/cv-structure.model';
 
 export const CV_INFO: CVInfo = {
   en: {
+    labels: {
+      experience: 'Experience',
+      education: 'Education',
+      contact: 'Contact',
+      skills: 'Skills',
+      languages: 'Languages',
+    },
     header: {
       backgroundImage: '',
       photo: '',
       lastName: 'Pugliatti',
       firstName: 'Barbara',
       jobTitle: 'Front-end Developer',
-      aboutMe: `<p>As a <span class="highlight">Front-End Developer</span> with 6+ years of experience, I love bringing ideas to life through <span class="highlight">intuitive interfaces</span> that make everyday interactions smoother and more enjoyable.</p> <p>Specialized in the <span class="highlight">Angular</span> ecosystem, I'm a curious mind who loves <span class="highlight">exploring new technologies</span>, refining <span class="highlight">best practices</span>, and finding smarter ways to build high-impact digital experiences. I'm currently deepening my expertise in <span class="highlight">web accessibility</span>.</p>`,
+      aboutMe: `<p>I'm a <strong>Front-End Developer</strong> with 6+ years in the <strong>Angular</strong> ecosystem. I came to tech through the <strong>humanities</strong>: trilingual, trained to think about language, context and how people make sense of things. I believe that's an edge: good interfaces don't just function, they <strong>make things easier</strong>.</p><p>I'm currently working toward my <strong>IAAP WAS accessibility certification</strong> and exploring <strong>AI tools</strong> through hands-on training work. I care deeply about how these tools get used in practice: <strong>product quality, developer accountability and accessibility</strong> matter to me as much as the technology itself.</p>`,
     },
     jobExperiences: [
       {
+        experienceName: 'AI TRAINER & DATA ANNOTATOR',
+        experienceDateStart: 'Apr 2026',
+        experienceDateEnd: 'Present',
+        companyName: 'Mercor.io',
+        location: 'Remote · Freelance',
+        extraDescription: `
+<p>I train AI models for <strong>software usage assistance</strong>, applying a <strong>reverse engineering approach</strong> to analyse outputs and identify reasoning gaps. I design <strong>evaluation rubrics</strong> to annotate and correct model responses, improving accuracy and reasoning performance.</p>
+        `,
+      },
+      {
         experienceName: 'SOFTWARE ENGINEER',
-        experienceDateStart: 'Sep 2025',
+        experienceDateStart: 'Sept 2025',
         experienceDateEnd: 'Mar 2026',
         companyName: 'Dougs Compta',
         location: 'Lyon, Auvergne-Rhône-Alpes, France · Remote',
         extraDescription: `
 <ul>
-  <li>Championed <span class="highlight">web accessibility</span> at company level, raising awareness of legal obligations and driving the organisation to <span class="highlight">appoint dedicated owners</span> and kick off a structured remediation effort.</li>
-  <li>Contributed to the development of <span class="highlight">online cash register and e-commerce features</span>, building the tools required for their related tax declaration workflows.</li>
-  <li>Redesigned the <span class="highlight">charts on the performance page</span>, overhauling their color scheme to improve <span class="highlight">contrast and readability</span>.</li>
-  <li>Collaborated with the front-end team to keep the application up to date, and to <span class="highlight">improve both app and test performance</span>.</li>
+  <li>Championed <strong>web accessibility</strong> at company level, raising awareness of legal obligations and driving the organisation to <strong>appoint dedicated owners</strong> and kick off a structured remediation effort.</li>
+  <li>Built <strong>online cash register and e-commerce features</strong>, including the tools needed for their tax declaration workflows.</li>
+  <li>Redesigned the <strong>charts on the performance page</strong>, overhauling their color scheme to improve <strong>contrast and readability</strong>.</li>
 </ul>
         `,
       },
@@ -33,13 +49,13 @@ export const CV_INFO: CVInfo = {
         companyName: 'Tiime',
         location: 'Paris, France',
         extraDescription: `
-      <p><span class="highlight">Collaboration</span> was at the heart of my work: working closely with product and UX teams to develop <span class="highlight">scalable, reusable UI components</span> that improved <span class="highlight">performance and maintainability</span>. Beyond my core role, I actively took on minor back-end tasks.</p> 
-  <p>Features I'm proud to have contributed to:</p>
+      <p><strong>Collaboration</strong> was at the heart of my work: working closely with product and UX teams, I developed <strong>scalable, reusable UI components</strong> that improved performance and maintainability.</p>
   <ul>
-      <li>Revamping core credit card functionalities, streamlining the creation and management of virtual and company cards to <span class="highlight">enhance user experience</span> and operational efficiency.</li>
-      <li>Implementing Strong Customer Authentication (SCA) and user privilege management, ensuring <span class="highlight">top-tier security</span> while <span class="highlight">maintaining compliance</span> with financial and privacy regulations.</li>
-      <li>Partnering with the QA team to establish an <span class="highlight">automated end-to-end test environment</span>, reducing production bug reports on the front-end side.</li>
+      <li>Revamped core credit card functionalities, streamlining how users create and manage virtual and company cards.</li>
+      <li>Implemented Strong Customer Authentication (SCA) and user privilege management, ensuring <strong>security and compliance</strong> with financial and data protection regulations.</li>
+      <li>Partnered with the QA team to establish an <strong>automated end-to-end test environment</strong>, reducing production bug reports on the front-end side.</li>
   </ul>
+  <p>The result: an app trusted by <strong>over 300,000 users</strong> and rated <strong>4.8/5 on Google</strong>.</p>
 
     `,
       },
@@ -50,17 +66,24 @@ export const CV_INFO: CVInfo = {
         companyName: 'RS2I',
         location: 'Levallois-Perret, France',
         extraDescription: `
-       <p>I built client-specific interfaces for business process management, turning <span class="highlight">massive datasets</span> and workflow tracking into intuitive visualizations. <span class="highlight">Performance and scalability</span> were top priorities.</p>
-      <p>I loved to:</p>
+       <p>I built client-specific interfaces for business process management, turning <strong>massive datasets</strong> and workflow tracking into intuitive visualizations. <strong>Performance and scalability</strong> were top priorities.</p>
         <ul>
-          <li><span class="highlight">Optimized data structures</span> and tailored business flows to ensure the interface scaled effortlessly as data grew.</li>
-          <li><span class="highlight">Work remotely with globally distributed teams</span> in both English and French.</li>
-          <li>Act as a bridge between technical and non-technical stakeholders, <span class="highlight">simplifying complex concepts</span>, keeping everyone aligned, and empowering <span class="highlight">informed decision-making</span>.</li>
+          <li><strong>Optimized data structures</strong> and tailored business flows to ensure the interface scaled effortlessly as data grew.</li>
+          <li>Worked remotely with <strong>globally distributed teams</strong> in both English and French.</li>
+          <li>Bridged technical and non-technical stakeholders, <strong>simplifying complex concepts</strong> and facilitating <strong>informed decision-making</strong>.</li>
       </ul>
     `,
       },
     ],
     formationExperiences: [
+      {
+        experienceName: 'WAS CERTIFICATION — WEB ACCESSIBILITY SPECIALIST',
+        experienceDateStart: 'May 2026',
+        experienceDateEnd: 'Present',
+        companyName: 'IAAP',
+        location: 'Online',
+        extraDescription: '',
+      },
       {
         experienceName: 'WEB DEVELOPMENT WITH SYMFONY 6',
         experienceDateStart: '',
@@ -88,7 +111,7 @@ export const CV_INFO: CVInfo = {
       {
         experienceName: 'WEB MASTER',
         experienceDateStart: 'Sept 2014',
-        experienceDateEnd: 'JUN 2015',
+        experienceDateEnd: 'Jun 2015',
         companyName: 'Accademia Anja',
         location: 'Rome, Italy',
         extraDescription:
@@ -171,6 +194,11 @@ export const CV_INFO: CVInfo = {
             isLinkedToCertification: false,
             linkToCertification: '',
           },
+          {
+            skillName: 'WCAG 2.1',
+            isLinkedToCertification: false,
+            linkToCertification: '',
+          },
         ],
       },
       {
@@ -199,6 +227,11 @@ export const CV_INFO: CVInfo = {
           },
           {
             skillName: 'Cypress',
+            isLinkedToCertification: false,
+            linkToCertification: '',
+          },
+          {
+            skillName: 'Jest',
             isLinkedToCertification: false,
             linkToCertification: '',
           },
@@ -257,11 +290,32 @@ export const CV_INFO: CVInfo = {
         ],
       },
       {
-        skillCategory: 'Tech I’m Currently Exploring',
+        skillCategory: 'AI Tools & Integrations',
+        icon: 'smart_toy',
+        skillList: [
+          {
+            skillName: 'Claude Code',
+            isLinkedToCertification: false,
+            linkToCertification: '',
+          },
+          {
+            skillName: 'OpenAI Codex',
+            isLinkedToCertification: false,
+            linkToCertification: '',
+          },
+          {
+            skillName: 'GitHub Copilot',
+            isLinkedToCertification: false,
+            linkToCertification: '',
+          },
+        ],
+      },
+      {
+        skillCategory: "Tech I'm Currently Exploring",
         icon: 'star_half',
         skillList: [
           {
-            skillName: 'CPACC Certification',
+            skillName: 'WAS Certification',
             isLinkedToCertification: false,
             linkToCertification: '',
           },
@@ -313,32 +367,48 @@ export const CV_INFO: CVInfo = {
         linkToCertification: '',
       },
       {
+        language: 'English',
+        proficiency: 'C1',
+        proficiencyLevel: '85',
+        isLinkedToCertification: false,
+        linkToCertification: '',
+      },
+      {
         language: 'French',
         proficiency: 'B2/C1',
         proficiencyLevel: '80',
         isLinkedToCertification: true,
         linkToCertification: '',
       },
-      {
-        language: 'English',
-        proficiency: 'B2',
-        proficiencyLevel: '70',
-        isLinkedToCertification: false,
-        linkToCertification: '',
-      },
     ],
   },
   fr: {
+    labels: {
+      experience: 'Expérience',
+      education: 'Formation',
+      contact: 'Contact',
+      skills: 'Compétences',
+      languages: 'Langues',
+    },
     header: {
       backgroundImage: '',
       photo: '',
       lastName: 'Pugliatti',
       firstName: 'Barbara',
       jobTitle: 'Développeuse Front-end',
-      aboutMe: `<p>En tant que <span class="highlight">développeuse Front-End</span> avec plus de 5 ans d'expérience, j'adore donner vie aux idées à travers des <span class="highlight">interfaces intuitives</span> qui rendent chaque interaction plus fluide et agréable.</p>  
-<p>Spécialisée dans l'écosystème <span class="highlight">Angular</span>, j’ai un esprit curieux qui aime <span class="highlight">découvrir de nouvelles technologies</span>, perfectionner les <span class="highlight">bonnes pratiques</span> et trouver des approches plus intelligentes pour concevoir des expériences numériques à fort impact.</p>`,
+      aboutMe: `<p>Je suis <strong>développeuse Front-End</strong> avec plus de 6 ans d'expérience dans l'écosystème <strong>Angular</strong>. Je suis arrivée à la tech par les <strong>sciences humaines</strong>: trilingue, formée à penser le langage, le contexte et la façon dont les gens donnent du sens aux choses. C'est ce qui fait la différence: une bonne interface ne se contente pas de fonctionner, elle <strong>simplifie la vie</strong>.</p><p>Je prépare actuellement ma <strong>certification IAAP WAS en accessibilité web</strong> et j'explore les <strong>outils IA</strong> à travers un travail de formation pratique. J'aime voir les différentes façons dont ces technologies sont mises en pratique, mais je considère la <strong>qualité du produit, la responsabilité des développeurs sur leur code et l'accessibilité</strong> comme partie intégrante du travail bien fait.</p>`,
     },
     jobExperiences: [
+      {
+        experienceName: 'FORMATRICE IA & ANNOTATRICE DE DONNÉES',
+        experienceDateStart: 'Avr 2026',
+        experienceDateEnd: 'Présent',
+        companyName: 'Mercor.io',
+        location: 'Remote · Freelance',
+        extraDescription: `
+<p>Je forme des modèles d'IA sur des cas d'usage <strong>logiciel</strong>, en appliquant une approche de <strong>rétro-ingénierie</strong> pour analyser les outputs et identifier les lacunes de raisonnement. Je conçois des <strong>rubrics d'évaluation</strong> pour annoter et corriger les réponses des modèles, améliorant leur précision et leur performance.</p>
+        `,
+      },
       {
         experienceName: 'INGÉNIEURE LOGICIEL',
         experienceDateStart: 'Sept 2025',
@@ -347,10 +417,9 @@ export const CV_INFO: CVInfo = {
         location: 'Lyon, Auvergne-Rhône-Alpes, France · Remote',
         extraDescription: `
 <ul>
-  <li>Portée d'entreprise : sensibilisation à <span class="highlight">l'accessibilité web</span> et aux obligations légales associées, conduisant l'organisation à <span class="highlight">nommer des responsables dédiés</span> et à lancer un travail structuré sur le sujet.</li>
-  <li>Contribution au développement des fonctionnalités de <span class="highlight">caisse en ligne et de vente en ligne</span>, en réalisant les outils nécessaires aux déclarations fiscales associées.</li>
-  <li>Refonte des <span class="highlight">graphiques de la page de performance</span>, avec une nouvelle palette de couleurs pour améliorer le <span class="highlight">contraste et la lisibilité</span>.</li>
-  <li>Collaboration avec l'équipe front-end pour maintenir l'application à jour et <span class="highlight">améliorer les performances de l'application et des tests</span>.</li>
+  <li>Portée d'entreprise: sensibilisation à <strong>l'accessibilité web</strong> et aux obligations légales associées, conduisant l'organisation à <strong>nommer des responsables dédiés</strong> et à lancer un travail structuré sur le sujet.</li>
+  <li>Développé les fonctionnalités de <strong>caisse en ligne et de vente en ligne</strong>, en réalisant les outils nécessaires aux déclarations fiscales associées.</li>
+  <li>Refonte des <strong>graphiques de la page de performance</strong>, avec une nouvelle palette de couleurs pour améliorer le <strong>contraste et la lisibilité</strong>.</li>
 </ul>
         `,
       },
@@ -361,15 +430,13 @@ export const CV_INFO: CVInfo = {
         companyName: 'Tiime',
         location: 'Paris, France',
         extraDescription: `
-      <p>La <span class="highlight">collaboration</span> était au cœur de mon travail : j'ai travaillé en étroite relation avec les équipes produit et UX pour développer des <span class="highlight">composants UI réutilisables et évolutifs</span>, améliorant ainsi la <span class="highlight">performance et la maintenabilité</span>. Au-delà de mon rôle principal, j’ai également pris en charge certaines tâches mineures en back-end.</p>  
-
-<p>Les fonctionnalités auxquelles je suis fière d’avoir contribué :</p>  
+      <p>La <strong>collaboration</strong> était au cœur de mon travail: en étroite relation avec les équipes produit et UX, j'ai développé des <strong>composants UI réutilisables et évolutifs</strong>, améliorant la performance et la maintenabilité.</p>  
 <ul>  
-    <li>Refonte des fonctionnalités clés des cartes de crédit, simplifiant la création et la gestion des cartes virtuelles et d'entreprise pour <span class="highlight">améliorer l'expérience utilisateur</span> et l’efficacité opérationnelle.</li>  
-    <li>Mise en place de l’Authentification Forte du Client (SCA) et de la gestion des privilèges utilisateurs, garantissant une <span class="highlight">sécurité optimale</span> tout en <span class="highlight">assurant la conformité</span> aux réglementations financières et de protection des données.</li>  
-    <li>Collaboration avec l'équipe QA pour établir un <span class="highlight">environnement de test automatisé de bout en bout</span>, réduisant ainsi le nombre de bugs signalés en production côté front-end.</li>  
+    <li>Refonte des fonctionnalités clés des cartes de crédit, simplifiant la création et la gestion des cartes virtuelles et d'entreprise pour <strong>améliorer l'expérience utilisateur</strong> et l'efficacité opérationnelle.</li>  
+    <li>Mise en place de l'Authentification Forte du Client (SCA) et de la gestion des privilèges utilisateurs, garantissant une <strong>sécurité optimale</strong> tout en <strong>assurant la conformité</strong> aux réglementations financières et de protection des données.</li>  
+    <li>Collaboration avec l'équipe QA pour établir un <strong>environnement de test automatisé de bout en bout</strong>, réduisant ainsi le nombre de bugs signalés en production côté front-end.</li>
 </ul>
-
+<p>Le résultat: une application utilisée par <strong>plus de 300 000 utilisateurs</strong>, notée <strong>4,8/5 sur Google</strong>.</p>
     `,
       },
       {
@@ -379,19 +446,25 @@ export const CV_INFO: CVInfo = {
         companyName: 'RS2I',
         location: 'Levallois-Perret, France',
         extraDescription: `
-      <p>J'ai conçu des interfaces adaptées aux besoins des clients pour la gestion des processus métier, transformant des <span class="highlight">volumes massifs de données</span> et des flux de travail complexes en visualisations claires et intuitives. La <span class="highlight">performance et la scalabilité</span> étaient toujours au cœur de mes priorités.</p>  
-
-<p>Ce que j’aimais particulièrement :</p>  
-<ul>  
-  <li><span class="highlight">Optimiser les structures de données</span> et adapter les flux métier pour garantir une interface fluide, même face à une croissance exponentielle des données.</li>  
-  <li><span class="highlight">Collaborer à distance avec des équipes distribuées</span> à travers le monde, en anglais et en français.</li>  
-  <li>Faire le lien entre les équipes techniques et non techniques, <span class="highlight">rendant des concepts complexes accessibles</span>, alignant toutes les parties prenantes et facilitant une <span class="highlight">prise de décision éclairée</span>.</li>  
+      <p>J'ai conçu des interfaces adaptées aux besoins des clients pour la gestion des processus métier, transformant des <strong>volumes massifs de données</strong> et des flux de travail complexes en visualisations claires et intuitives. La <strong>performance et la scalabilité</strong> étaient toujours au cœur de mes priorités.</p>
+<ul>
+  <li><strong>Optimisation des structures de données</strong> et adaptation des flux métier pour garantir une interface fluide même face à une forte croissance des données.</li>
+  <li><strong>Collaboration à distance avec des équipes distribuées</strong> à travers le monde, en anglais et en français.</li>
+  <li>Interface entre les équipes techniques et non techniques, en <strong>rendant des concepts complexes accessibles</strong> et en facilitant une <strong>prise de décision éclairée</strong>.</li>
 </ul>
 
     `,
       },
     ],
     formationExperiences: [
+      {
+        experienceName: 'CERTIFICATION WAS — WEB ACCESSIBILITY SPECIALIST',
+        experienceDateStart: 'Mai 2026',
+        experienceDateEnd: 'En cours',
+        companyName: 'IAAP',
+        location: 'En ligne',
+        extraDescription: '',
+      },
       {
         experienceName: 'DÉVELOPPEMENT WEB AVEC SYMFONY 6',
         experienceDateStart: '',
@@ -414,7 +487,7 @@ export const CV_INFO: CVInfo = {
         experienceDateEnd: 'Mars 2017',
         companyName: 'Université La Sapienza de Rome',
         location: 'Rome, Italie',
-        extraDescription: 'Note finale : 110 Summa cum Laude/110',
+        extraDescription: 'Note finale: 110 Summa cum Laude/110',
       },
       {
         experienceName: 'WEB MASTER',
@@ -423,15 +496,15 @@ export const CV_INFO: CVInfo = {
         companyName: 'Accademia Anja',
         location: 'Rome, Italie',
         extraDescription:
-          'Certification obtenue : PHP Developer Fundamentals sur MySQL®',
+          'Certification obtenue: PHP Developer Fundamentals sur MySQL®',
       },
       {
         experienceName: 'LICENCE EN SCIENCES DU PATRIMOINE CULTUREL',
-        experienceDateStart: 'Jan 2014',
-        experienceDateEnd: 'Sept 2010',
+        experienceDateStart: 'Sept 2010',
+        experienceDateEnd: 'Jan 2014',
         companyName: 'Université de Milan',
         location: 'Rome, Italie',
-        extraDescription: 'Note finale : 105/110',
+        extraDescription: 'Note finale: 105/110',
       },
     ],
     contacts: [
@@ -440,7 +513,7 @@ export const CV_INFO: CVInfo = {
         contactValue: 'pugliatti.barbara@gmail.com',
         contactIcon: 'mail',
         contactTooltip:
-          'Cliquez sur l’e-mail pour ouvrir votre client de messagerie par défaut.',
+          "Cliquez sur l'e-mail pour ouvrir votre client de messagerie par défaut.",
         isCopyAllowed: true,
       },
       {
@@ -505,6 +578,11 @@ export const CV_INFO: CVInfo = {
             isLinkedToCertification: false,
             linkToCertification: '',
           },
+          {
+            skillName: 'WCAG 2.1',
+            isLinkedToCertification: false,
+            linkToCertification: '',
+          },
         ],
       },
       {
@@ -533,6 +611,11 @@ export const CV_INFO: CVInfo = {
           },
           {
             skillName: 'Cypress',
+            isLinkedToCertification: false,
+            linkToCertification: '',
+          },
+          {
+            skillName: 'Jest',
             isLinkedToCertification: false,
             linkToCertification: '',
           },
@@ -591,11 +674,32 @@ export const CV_INFO: CVInfo = {
         ],
       },
       {
-        skillCategory: "En ce moment j'esplore",
+        skillCategory: 'Outils IA',
+        icon: 'smart_toy',
+        skillList: [
+          {
+            skillName: 'Claude Code',
+            isLinkedToCertification: false,
+            linkToCertification: '',
+          },
+          {
+            skillName: 'OpenAI Codex',
+            isLinkedToCertification: false,
+            linkToCertification: '',
+          },
+          {
+            skillName: 'GitHub Copilot',
+            isLinkedToCertification: false,
+            linkToCertification: '',
+          },
+        ],
+      },
+      {
+        skillCategory: "En ce moment j'explore",
         icon: 'star_half',
         skillList: [
           {
-            skillName: 'Certification CPACC',
+            skillName: 'Certification WAS',
             isLinkedToCertification: false,
             linkToCertification: '',
           },
@@ -641,23 +745,39 @@ export const CV_INFO: CVInfo = {
 
     languages: [
       { language: 'Italien', proficiency: 'Natif', proficiencyLevel: '100' },
+      { language: 'Anglais', proficiency: 'C1', proficiencyLevel: '85' },
       { language: 'Français', proficiency: 'B2/C1', proficiencyLevel: '80' },
-      { language: 'Anglais', proficiency: 'B2', proficiencyLevel: '70' },
     ],
   },
 
   it: {
+    labels: {
+      experience: 'Esperienza',
+      education: 'Formazione',
+      contact: 'Contatti',
+      skills: 'Competenze',
+      languages: 'Lingue',
+    },
     header: {
       backgroundImage: '',
       photo: '',
       lastName: 'Pugliatti',
       firstName: 'Barbara',
       jobTitle: 'Sviluppatrice Front-end',
-      aboutMe: `<p>In qualità di <span class="highlight">Sviluppatrice Front-End</span> con oltre 6 anni di esperienza, amo trasformare le idee in realtà attraverso <span class="highlight">interfacce intuitive</span> che rendono le interazioni quotidiane più fluide e piacevoli.</p>
-<p>Specializzata nell'ecosistema <span class="highlight">Angular</span>, sono una persona curiosa che ama <span class="highlight">scoprire nuove tecnologie</span>, perfezionare le <span class="highlight">best practice</span> e trovare soluzioni più intelligenti per creare esperienze digitali ad alto impatto. Mi sto attualmente formando in <span class="highlight">accessibilità web</span>.</p>
+      aboutMe: `<p>Sono una <strong>sviluppatrice Front-End</strong> con oltre 6 anni di esperienza nell'ecosistema <strong>Angular</strong>. Sono arrivata alla tecnologia attraverso le <strong>scienze umane</strong>: trilingue, con una formazione che mi ha insegnato a ragionare su linguaggio, contesto e come le persone costruiscono il senso delle cose. Penso che sia un vantaggio: una buona interfaccia non funziona soltanto, <strong>semplifica le cose</strong>.</p><p>Sto preparando la <strong>certificazione IAAP WAS per l'accessibilità web</strong> e sto esplorando gli <strong>strumenti di IA</strong> attraverso un lavoro di formazione pratica. Mi interessa vedere come vengono usati concretamente nei progetti: la <strong>responsabilità degli sviluppatori sul codice e l'accessibilità come parte integrante del prodotto</strong> sono valori a cui tengo molto.</p>
 `,
     },
     jobExperiences: [
+      {
+        experienceName: 'AI TRAINER & DATA ANNOTATOR',
+        experienceDateStart: 'Apr 2026',
+        experienceDateEnd: 'Presente',
+        companyName: 'Mercor.io',
+        location: 'Remote · Freelance',
+        extraDescription: `
+<p>Mi occupo di formare modelli per l'<strong>assistenza all'uso di software</strong>, applicando un approccio di <strong>reverse engineering</strong> per analizzare gli output e individuare le lacune di ragionamento. Costruisco <strong>rubrics di valutazione</strong> per annotare e correggere le risposte dei modelli, migliorandone precisione e performance.</p>
+        `,
+      },
       {
         experienceName: 'INGEGNERE SOFTWARE',
         experienceDateStart: 'Settembre 2025',
@@ -666,10 +786,9 @@ export const CV_INFO: CVInfo = {
         location: 'Lione, Auvergne-Rhône-Alpes, Francia · Remote',
         extraDescription: `
 <ul>
-  <li>Ho promosso a livello aziendale la cultura dell'<span class="highlight">accessibilità web</span>, sensibilizzando sull'esistenza di obblighi legali e spingendo l'organizzazione a <span class="highlight">nominare responsabili dedicati</span> e avviare un lavoro strutturato sul tema.</li>
-  <li>Ho contribuito allo sviluppo delle funzionalità di <span class="highlight">cassa online e vendita online</span>, realizzando gli strumenti necessari per le relative dichiarazioni fiscali.</li>
-  <li>Ho ridisegnato i <span class="highlight">grafici della pagina delle performance</span>, rinnovando la palette di colori per migliorare il <span class="highlight">contrasto e la leggibilità</span>.</li>
-  <li>Ho collaborato con il team front-end per mantenere l'applicazione aggiornata e <span class="highlight">migliorare le performance dell'app e dei test</span>.</li>
+  <li>Ho promosso a livello aziendale la cultura dell'<strong>accessibilità web</strong>, sensibilizzando sull'esistenza di obblighi legali e spingendo l'organizzazione a <strong>nominare responsabili dedicati</strong> e avviare un lavoro strutturato sul tema.</li>
+  <li>Ho contribuito allo sviluppo delle funzionalità di <strong>cassa online e vendita online</strong>, realizzando gli strumenti necessari per le relative dichiarazioni fiscali.</li>
+  <li>Ho ridisegnato i <strong>grafici della pagina delle performance</strong>, rinnovando la palette di colori per migliorare il <strong>contrasto e la leggibilità</strong>.</li>
 </ul>
         `,
       },
@@ -680,14 +799,13 @@ export const CV_INFO: CVInfo = {
         companyName: 'Tiime',
         location: 'Parigi, Francia',
         extraDescription: `
-     <p><span class="highlight">La collaborazione</span> è sempre stata al centro del mio lavoro: ho lavorato a stretto contatto con i team di prodotto e UX per sviluppare <span class="highlight">componenti UI scalabili e riutilizzabili</span>, migliorando la <span class="highlight">performance e la manutenibilità</span>. Oltre al mio ruolo principale, mi sono occupata anche di alcune attività di back-end.</p>  
-
-<p>Funzionalità a cui ho contribuito:</p>  
-<ul>  
-    <li>Rinnovamento delle funzionalità di gestione delle carte di credito, semplificando la creazione e la gestione delle carte virtuali e aziendali per <span class="highlight">ottimizzare l'esperienza utente</span> e migliorare l’efficienza operativa.</li>  
-    <li>Implementazione della Strong Customer Authentication (SCA) e gestione dei privilegi utente, garantendo una <span class="highlight">sicurezza avanzata</span> e la <span class="highlight">conformità</span> alle normative finanziarie e sulla protezione dei dati.</li>  
-    <li>Collaborazione con il team QA per creare un <span class="highlight">ambiente di test end-to-end automatizzato</span>, riducendo il numero di bug segnalati in produzione lato front-end.</li>  
+     <p><strong>La collaborazione</strong> è sempre stata al centro del mio lavoro. A stretto contatto con i team di prodotto e UX, ho sviluppato <strong>componenti UI scalabili e riutilizzabili</strong>, migliorando performance e manutenibilità.</p>
+<ul>
+    <li>Rinnovamento delle funzionalità di gestione delle carte di credito, semplificando la creazione e la gestione delle carte virtuali e aziendali per <strong>ottimizzare l'esperienza utente</strong> e migliorare l'efficienza operativa.</li>
+    <li>Implementazione della Strong Customer Authentication (SCA) e gestione dei privilegi utente, garantendo una <strong>sicurezza avanzata</strong> e la <strong>conformità</strong> alle normative finanziarie e sulla protezione dei dati.</li>
+    <li>Collaborazione con il team QA per creare un <strong>ambiente di test end-to-end automatizzato</strong>, riducendo il numero di bug segnalati in produzione lato front-end.</li>
 </ul>
+<p>Il risultato: un'app con <strong>oltre 300.000 utenti</strong>, valutata <strong>4,8/5 su Google</strong>.</p>
       `,
       },
       {
@@ -697,18 +815,24 @@ export const CV_INFO: CVInfo = {
         companyName: 'RS2I',
         location: 'Levallois-Perret, Francia',
         extraDescription: `
-        <p>Ho progettato interfacce su misura per la gestione dei processi aziendali, trasformando <span class="highlight">grandi volumi di dati</span> e il tracciamento dei flussi di lavoro in visualizzazioni intuitive. <span class="highlight">Performance e scalabilità</span> sono sempre state le mie priorità.</p>  
-
-<p>Ho amato:</p>  
-<ul>  
-  <li><span class="highlight">Ottimizzare le strutture dati</span> e adattare i flussi aziendali per garantire un'interfaccia fluida e scalabile, anche con l'aumento dei dati.</li>  
-  <li><span class="highlight">Lavorare da remoto con team distribuiti</span> a livello globale, in inglese e francese.</li>  
-  <li>Fare da ponte tra stakeholder tecnici e non tecnici, <span class="highlight">semplificando concetti complessi</span>, allineando tutti e facilitando una <span class="highlight">presa di decisioni informata</span>.</li>  
+        <p>Ho progettato interfacce su misura per la gestione dei processi aziendali, trasformando <strong>grandi volumi di dati</strong> e il tracciamento dei flussi di lavoro in visualizzazioni intuitive. <strong>Performance e scalabilità</strong> sono sempre state le mie priorità.</p>
+<ul>
+  <li>Ho <strong>ottimizzato le strutture dati</strong> e adattato i flussi aziendali per garantire un'interfaccia fluida anche con la crescita dei dati.</li>
+  <li>Ho lavorato da remoto con <strong>team distribuiti a livello globale</strong>, in inglese e francese.</li>
+  <li>Ho fatto da ponte tra stakeholder tecnici e non tecnici, <strong>semplificando concetti complessi</strong> e facilitando <strong>decisioni informate</strong>.</li>
 </ul>
       `,
       },
     ],
     formationExperiences: [
+      {
+        experienceName: 'CERTIFICAZIONE WAS — WEB ACCESSIBILITY SPECIALIST',
+        experienceDateStart: 'Maggio 2026',
+        experienceDateEnd: 'In corso',
+        companyName: 'IAAP',
+        location: 'Online',
+        extraDescription: '',
+      },
       {
         experienceName: 'SVILUPPO WEB CON SYMFONY 6',
         experienceDateStart: '',
@@ -718,7 +842,7 @@ export const CV_INFO: CVInfo = {
         extraDescription: '',
       },
       {
-        experienceName: 'SVILUPPATORE JAVA J2EE',
+        experienceName: 'SVILUPPATRICE JAVA J2EE',
         experienceDateStart: 'Maggio 2019',
         experienceDateEnd: 'Settembre 2019',
         companyName: 'EduGroup',
@@ -757,7 +881,7 @@ export const CV_INFO: CVInfo = {
         contactValue: 'pugliatti.barbara@gmail.com',
         contactIcon: 'mail',
         contactTooltip:
-          'Clicca sull’email per aprire il client di posta predefinito.',
+          "Clicca sull'email per aprire il client di posta predefinito.",
         isCopyAllowed: true,
       },
       {
@@ -771,7 +895,7 @@ export const CV_INFO: CVInfo = {
         contactType: 'phone',
         contactValue: '+33636411538',
         contactIcon: 'phone_iphone',
-        contactTooltip: 'Clicca sul numero per chiamare con l’app predefinita.',
+        contactTooltip: "Clicca sul numero per chiamare con l'app predefinita.",
         isCopyAllowed: true,
       },
       {
@@ -821,6 +945,11 @@ export const CV_INFO: CVInfo = {
             isLinkedToCertification: false,
             linkToCertification: '',
           },
+          {
+            skillName: 'WCAG 2.1',
+            isLinkedToCertification: false,
+            linkToCertification: '',
+          },
         ],
       },
       {
@@ -849,6 +978,11 @@ export const CV_INFO: CVInfo = {
           },
           {
             skillName: 'Cypress',
+            isLinkedToCertification: false,
+            linkToCertification: '',
+          },
+          {
+            skillName: 'Jest',
             isLinkedToCertification: false,
             linkToCertification: '',
           },
@@ -907,11 +1041,32 @@ export const CV_INFO: CVInfo = {
         ],
       },
       {
+        skillCategory: 'Strumenti IA',
+        icon: 'smart_toy',
+        skillList: [
+          {
+            skillName: 'Claude Code',
+            isLinkedToCertification: false,
+            linkToCertification: '',
+          },
+          {
+            skillName: 'OpenAI Codex',
+            isLinkedToCertification: false,
+            linkToCertification: '',
+          },
+          {
+            skillName: 'GitHub Copilot',
+            isLinkedToCertification: false,
+            linkToCertification: '',
+          },
+        ],
+      },
+      {
         skillCategory: 'Tecnologie che sto esplorando',
         icon: 'star_half',
         skillList: [
           {
-            skillName: 'Certificazione CPACC',
+            skillName: 'Certificazione WAS',
             isLinkedToCertification: false,
             linkToCertification: '',
           },
@@ -961,8 +1116,8 @@ export const CV_INFO: CVInfo = {
         proficiency: 'Madrelingua',
         proficiencyLevel: '100',
       },
+      { language: 'Inglese', proficiency: 'C1', proficiencyLevel: '85' },
       { language: 'Francese', proficiency: 'B2/C1', proficiencyLevel: '80' },
-      { language: 'Inglese', proficiency: 'B2', proficiencyLevel: '70' },
     ],
   },
 };
